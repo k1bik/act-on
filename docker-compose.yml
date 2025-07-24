@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  postgresql:
+    container_name: "act_on_postgresql"
+    hostname: "act_on_postgresql"
+    image: postgres:16.1
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - PGUSER=development
+      - POSTGRES_USER=development
+      - POSTGRES_PASSWORD=development
+    volumes:
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"
+
+volumes:
+  dbdata:
