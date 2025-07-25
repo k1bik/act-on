@@ -540,14 +540,11 @@ class ActionMailer::Base < ::AbstractController::Base
 
   # @return [Base] a new instance of Base
   #
-  # source://actionmailer//lib/action_mailer/base.rb#643
+  # source://actionmailer//lib/action_mailer/base.rb#638
   def initialize; end
 
   # source://actionmailer//lib/action_mailer/base.rb#477
   def __callbacks; end
-
-  # source://actionmailer//lib/action_mailer/base.rb#477
-  def __callbacks?; end
 
   # source://actionmailer//lib/action_mailer/base.rb#477
   def _deliver_callbacks; end
@@ -626,7 +623,7 @@ class ActionMailer::Base < ::AbstractController::Base
   #  # or by index
   #  mail.attachments[0]                # => Mail::Part (first attachment)
   #
-  # source://actionmailer//lib/action_mailer/base.rb#760
+  # source://actionmailer//lib/action_mailer/base.rb#755
   def attachments; end
 
   # source://actionmailer//lib/action_mailer/base.rb#492
@@ -690,7 +687,7 @@ class ActionMailer::Base < ::AbstractController::Base
   #
   # If the name is a blank string, it returns just the address.
   #
-  # source://actionmailer//lib/action_mailer/base.rb#684
+  # source://actionmailer//lib/action_mailer/base.rb#679
   def email_address_with_name(address, name); end
 
   # source://actionmailer//lib/action_mailer/base.rb#494
@@ -752,7 +749,7 @@ class ActionMailer::Base < ::AbstractController::Base
   # +nil+ in order to reset the value otherwise another field will be added
   # for the same header.
   #
-  # source://actionmailer//lib/action_mailer/base.rb#722
+  # source://actionmailer//lib/action_mailer/base.rb#717
   def headers(args = T.unsafe(nil)); end
 
   # source://actionmailer//lib/action_mailer/base.rb#492
@@ -856,18 +853,18 @@ class ActionMailer::Base < ::AbstractController::Base
   #     format.html
   #   end
   #
-  # source://actionmailer//lib/action_mailer/base.rb#869
+  # source://actionmailer//lib/action_mailer/base.rb#864
   def mail(headers = T.unsafe(nil), &block); end
 
   # Returns the name of the mailer object.
   #
-  # source://actionmailer//lib/action_mailer/base.rb#677
+  # source://actionmailer//lib/action_mailer/base.rb#672
   def mailer_name; end
 
-  # source://actionmailer//lib/action_mailer/base.rb#641
+  # source://actionmailer//lib/action_mailer/base.rb#636
   def message; end
 
-  # source://actionmailer//lib/action_mailer/base.rb#641
+  # source://actionmailer//lib/action_mailer/base.rb#636
   def message=(_arg0); end
 
   # source://actionmailer//lib/action_mailer/base.rb#481
@@ -894,7 +891,7 @@ class ActionMailer::Base < ::AbstractController::Base
   # source://actionmailer//lib/action_mailer/base.rb#482
   def preview_paths; end
 
-  # source://actionmailer//lib/action_mailer/base.rb#649
+  # source://actionmailer//lib/action_mailer/base.rb#644
   def process(method_name, *args, **_arg2); end
 
   # source://actionmailer//lib/action_mailer/base.rb#478
@@ -963,35 +960,35 @@ class ActionMailer::Base < ::AbstractController::Base
   private
 
   # source://actionmailer//lib/action_mailer/base.rb#496
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#1070
+  # source://actionmailer//lib/action_mailer/base.rb#1065
   def _protected_ivars; end
 
-  # source://actionmailer//lib/action_mailer/base.rb#946
+  # source://actionmailer//lib/action_mailer/base.rb#941
   def apply_defaults(headers); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#966
+  # source://actionmailer//lib/action_mailer/base.rb#961
   def assign_headers_to_message(message, headers); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#972
+  # source://actionmailer//lib/action_mailer/base.rb#967
   def collect_responses(headers, &block); end
 
   # @yield [collector]
   #
-  # source://actionmailer//lib/action_mailer/base.rb#982
+  # source://actionmailer//lib/action_mailer/base.rb#977
   def collect_responses_from_block(headers); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#996
+  # source://actionmailer//lib/action_mailer/base.rb#991
   def collect_responses_from_templates(headers); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#989
+  # source://actionmailer//lib/action_mailer/base.rb#984
   def collect_responses_from_text(headers); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#956
+  # source://actionmailer//lib/action_mailer/base.rb#951
   def compute_default(value); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#1039
+  # source://actionmailer//lib/action_mailer/base.rb#1034
   def create_parts_from_responses(m, responses); end
 
   # Translates the +subject+ using \Rails I18n class under <tt>[mailer_scope, action_name]</tt> scope.
@@ -999,21 +996,21 @@ class ActionMailer::Base < ::AbstractController::Base
   # humanized version of the <tt>action_name</tt>.
   # If the subject has interpolations, you can pass them through the +interpolations+ parameter.
   #
-  # source://actionmailer//lib/action_mailer/base.rb#936
+  # source://actionmailer//lib/action_mailer/base.rb#931
   def default_i18n_subject(interpolations = T.unsafe(nil)); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#1009
+  # source://actionmailer//lib/action_mailer/base.rb#1004
   def each_template(paths, name, &block); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#1052
+  # source://actionmailer//lib/action_mailer/base.rb#1047
   def insert_part(container, response, charset); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#1066
+  # source://actionmailer//lib/action_mailer/base.rb#1061
   def instrument_name; end
 
   # This and #instrument_name is for caching instrument
   #
-  # source://actionmailer//lib/action_mailer/base.rb#1059
+  # source://actionmailer//lib/action_mailer/base.rb#1054
   def instrument_payload(key); end
 
   # Used by #mail to set the content type of the message.
@@ -1026,10 +1023,10 @@ class ActionMailer::Base < ::AbstractController::Base
   # attachments, or the message is multipart, then the default content type is
   # used.
   #
-  # source://actionmailer//lib/action_mailer/base.rb#914
+  # source://actionmailer//lib/action_mailer/base.rb#909
   def set_content_type(m, user_content_type, class_default); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#1018
+  # source://actionmailer//lib/action_mailer/base.rb#1013
   def wrap_inline_attachments(message); end
 
   class << self
@@ -1038,9 +1035,6 @@ class ActionMailer::Base < ::AbstractController::Base
 
     # source://actionmailer//lib/action_mailer/base.rb#477
     def __callbacks=(value); end
-
-    # source://actionmailer//lib/action_mailer/base.rb#477
-    def __callbacks?; end
 
     # source://actionmailer//lib/action_mailer/base.rb#483
     def _default_form_builder; end
@@ -1120,13 +1114,11 @@ class ActionMailer::Base < ::AbstractController::Base
     # source://actionmailer//lib/action_mailer/base.rb#575
     def controller_path; end
 
-    # Sets the defaults through app configuration:
+    # Allows to set defaults through app configuration:
     #
-    #     config.action_mailer.default(from: "no-reply@example.org")
+    #    config.action_mailer.default_options = { from: "no-reply@example.org" }
     #
-    # Aliased by ::default_options=
-    #
-    # source://actionmailer//lib/action_mailer/base.rb#582
+    # source://actionmailer//lib/action_mailer/base.rb#580
     def default(value = T.unsafe(nil)); end
 
     # source://actionmailer//lib/action_mailer/base.rb#492
@@ -1135,16 +1127,11 @@ class ActionMailer::Base < ::AbstractController::Base
     # source://actionmailer//lib/action_mailer/base.rb#492
     def default_asset_host_protocol=(value); end
 
-    # Sets the defaults through app configuration:
-    #
-    #     config.action_mailer.default(from: "no-reply@example.org")
-    #
-    # Aliased by ::default_options=
     # Allows to set defaults through app configuration:
     #
     #    config.action_mailer.default_options = { from: "no-reply@example.org" }
     #
-    # source://actionmailer//lib/action_mailer/base.rb#589
+    # source://actionmailer//lib/action_mailer/base.rb#584
     def default_options=(value = T.unsafe(nil)); end
 
     # source://actionmailer//lib/action_mailer/base.rb#502
@@ -1178,7 +1165,7 @@ class ActionMailer::Base < ::AbstractController::Base
     # calling +deliver_mail+ directly and passing a +Mail::Message+ will do
     # nothing except tell the logger you sent the email.
     #
-    # source://actionmailer//lib/action_mailer/base.rb#597
+    # source://actionmailer//lib/action_mailer/base.rb#592
     def deliver_mail(mail); end
 
     # source://actionmailer//lib/action_mailer/base.rb#479
@@ -1212,7 +1199,7 @@ class ActionMailer::Base < ::AbstractController::Base
     #
     # If the name is a blank string, it returns just the address.
     #
-    # source://actionmailer//lib/action_mailer/base.rb#607
+    # source://actionmailer//lib/action_mailer/base.rb#602
     def email_address_with_name(address, name); end
 
     # source://actionmailer//lib/action_mailer/base.rb#494
@@ -1371,7 +1358,7 @@ class ActionMailer::Base < ::AbstractController::Base
     #
     # @return [Boolean]
     #
-    # source://actionmailer//lib/action_mailer/base.rb#942
+    # source://actionmailer//lib/action_mailer/base.rb#937
     def supports_path?; end
 
     # source://actionmailer//lib/action_mailer/base.rb#478
@@ -1409,7 +1396,109 @@ class ActionMailer::Base < ::AbstractController::Base
 
     private
 
-    # source://actionmailer//lib/action_mailer/base.rb#628
+    # source://actionmailer//lib/action_mailer/base.rb#477
+    def __class_attr___callbacks; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#477
+    def __class_attr___callbacks=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#483
+    def __class_attr__default_form_builder; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#483
+    def __class_attr__default_form_builder=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#490
+    def __class_attr__helper_methods; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#490
+    def __class_attr__helper_methods=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#496
+    def __class_attr__layout; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#496
+    def __class_attr__layout=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#496
+    def __class_attr__layout_conditions; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#496
+    def __class_attr__layout_conditions=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#494
+    def __class_attr__view_cache_dependencies; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#494
+    def __class_attr__view_cache_dependencies=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#502
+    def __class_attr_default_params; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#502
+    def __class_attr_default_params=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#479
+    def __class_attr_deliver_later_queue_name; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#479
+    def __class_attr_deliver_later_queue_name=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#479
+    def __class_attr_delivery_job; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#479
+    def __class_attr_delivery_job=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_delivery_method; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_delivery_method=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_delivery_methods; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_delivery_methods=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_file_settings; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_file_settings=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#494
+    def __class_attr_fragment_cache_keys; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#494
+    def __class_attr_fragment_cache_keys=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#480
+    def __class_attr_rescue_handlers; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#480
+    def __class_attr_rescue_handlers=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_sendmail_settings; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_sendmail_settings=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_smtp_settings; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_smtp_settings=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_test_settings; end
+
+    # source://actionmailer//lib/action_mailer/base.rb#478
+    def __class_attr_test_settings=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/base.rb#623
     def method_missing(method_name, *_arg1, **_arg2, &_arg3); end
 
     # source://actionmailer//lib/action_mailer/base.rb#558
@@ -1417,10 +1506,10 @@ class ActionMailer::Base < ::AbstractController::Base
 
     # @return [Boolean]
     #
-    # source://actionmailer//lib/action_mailer/base.rb#636
+    # source://actionmailer//lib/action_mailer/base.rb#631
     def respond_to_missing?(method, include_all = T.unsafe(nil)); end
 
-    # source://actionmailer//lib/action_mailer/base.rb#615
+    # source://actionmailer//lib/action_mailer/base.rb#610
     def set_payload_for_mail(payload, mail); end
   end
 end
@@ -1438,36 +1527,36 @@ module ActionMailer::Base::HelperMethods
   def view_cache_dependencies(*_arg0, **_arg1, &_arg2); end
 end
 
-# source://actionmailer//lib/action_mailer/base.rb#768
+# source://actionmailer//lib/action_mailer/base.rb#763
 class ActionMailer::Base::LateAttachmentsProxy < ::SimpleDelegator
-  # source://actionmailer//lib/action_mailer/base.rb#770
+  # source://actionmailer//lib/action_mailer/base.rb#765
   def []=(_name, _content); end
 
-  # source://actionmailer//lib/action_mailer/base.rb#769
+  # source://actionmailer//lib/action_mailer/base.rb#764
   def inline; end
 
   private
 
   # @raise [RuntimeError]
   #
-  # source://actionmailer//lib/action_mailer/base.rb#773
+  # source://actionmailer//lib/action_mailer/base.rb#768
   def _raise_error; end
 end
 
-# source://actionmailer//lib/action_mailer/base.rb#663
+# source://actionmailer//lib/action_mailer/base.rb#658
 class ActionMailer::Base::NullMail
-  # source://actionmailer//lib/action_mailer/base.rb#664
+  # source://actionmailer//lib/action_mailer/base.rb#659
   def body; end
 
-  # source://actionmailer//lib/action_mailer/base.rb#665
+  # source://actionmailer//lib/action_mailer/base.rb#660
   def header; end
 
-  # source://actionmailer//lib/action_mailer/base.rb#671
+  # source://actionmailer//lib/action_mailer/base.rb#666
   def method_missing(*_arg0, **_arg1, &_arg2); end
 
   # @return [Boolean]
   #
-  # source://actionmailer//lib/action_mailer/base.rb#667
+  # source://actionmailer//lib/action_mailer/base.rb#662
   def respond_to?(string, include_all = T.unsafe(nil)); end
 end
 
@@ -1488,12 +1577,10 @@ module ActionMailer::Callbacks
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
   end
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
   end
 end
 
@@ -1676,7 +1763,7 @@ end
 # = Action Mailer \InlinePreviewInterceptor
 #
 # Implements a mailer preview interceptor that converts image tag src attributes
-# that use inline cid: style URLs to data: style URLs so that they are visible
+# that use inline +cid:+ style URLs to +data:+ style URLs so that they are visible
 # when previewing an HTML email in a web browser.
 #
 # This interceptor is enabled by default. To disable it, delete it from the
@@ -1744,8 +1831,13 @@ class ActionMailer::LogSubscriber < ::ActiveSupport::LogSubscriber
   def process(event); end
 
   class << self
+    private
+
     # source://actionmailer//lib/action_mailer/log_subscriber.rb#25
-    def log_levels; end
+    def __class_attr_log_levels; end
+
+    # source://actionmailer//lib/action_mailer/log_subscriber.rb#25
+    def __class_attr_log_levels=(new_value); end
   end
 end
 
@@ -1774,11 +1866,19 @@ class ActionMailer::MailDeliveryJob < ::ActiveJob::Base
   def mailer_class; end
 
   class << self
+    private
+
     # source://actionmailer//lib/action_mailer/mail_delivery_job.rb#14
-    def queue_name; end
+    def __class_attr_queue_name; end
+
+    # source://actionmailer//lib/action_mailer/mail_delivery_job.rb#14
+    def __class_attr_queue_name=(new_value); end
 
     # source://actionmailer//lib/action_mailer/mail_delivery_job.rb#19
-    def rescue_handlers; end
+    def __class_attr_rescue_handlers; end
+
+    # source://actionmailer//lib/action_mailer/mail_delivery_job.rb#19
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -2312,9 +2412,6 @@ class ActionMailer::TestCase < ::ActiveSupport::TestCase
   def _mailer_class?; end
 
   class << self
-    # source://actionmailer//lib/action_mailer/test_case.rb#42
-    def __callbacks; end
-
     # source://actionmailer//lib/action_mailer/test_case.rb#41
     def _mailer_class; end
 
@@ -2323,6 +2420,20 @@ class ActionMailer::TestCase < ::ActiveSupport::TestCase
 
     # source://actionmailer//lib/action_mailer/test_case.rb#41
     def _mailer_class?; end
+
+    private
+
+    # source://actionmailer//lib/action_mailer/test_case.rb#42
+    def __class_attr___callbacks; end
+
+    # source://actionmailer//lib/action_mailer/test_case.rb#42
+    def __class_attr___callbacks=(new_value); end
+
+    # source://actionmailer//lib/action_mailer/test_case.rb#41
+    def __class_attr__mailer_class; end
+
+    # source://actionmailer//lib/action_mailer/test_case.rb#41
+    def __class_attr__mailer_class=(new_value); end
   end
 end
 
@@ -2655,7 +2766,7 @@ ActionMailer::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionMailer::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://actionmailer//lib/action_mailer/gem_version.rb#13
-ActionMailer::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActionMailer::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://actionmailer//lib/action_mailer/gem_version.rb#15
 ActionMailer::VERSION::STRING = T.let(T.unsafe(nil), String)

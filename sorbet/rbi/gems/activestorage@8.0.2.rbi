@@ -318,8 +318,12 @@ class ActiveStorage::AnalyzeJob < ::ActiveStorage::BaseJob
   def perform(blob); end
 
   class << self
-    def queue_name; end
-    def rescue_handlers; end
+    private
+
+    def __class_attr_queue_name; end
+    def __class_attr_queue_name=(new_value); end
+    def __class_attr_rescue_handlers; end
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -875,27 +879,37 @@ module ActiveStorage::Attached::Model
 
   mixes_in_class_methods ::ActiveStorage::Attached::Model::ClassMethods
 
-  # source://activestorage//lib/active_storage/attached/model.rb#258
+  # source://activestorage//lib/active_storage/attached/model.rb#281
   def attachment_changes; end
 
-  # source://activestorage//lib/active_storage/attached/model.rb#262
+  # source://activestorage//lib/active_storage/attached/model.rb#285
   def changed_for_autosave?; end
 
-  # source://activestorage//lib/active_storage/attached/model.rb#272
+  # source://activestorage//lib/active_storage/attached/model.rb#295
   def reload(*_arg0); end
 
   private
 
-  # source://activestorage//lib/active_storage/attached/model.rb#266
+  # source://activestorage//lib/active_storage/attached/model.rb#289
   def initialize_dup(*_arg0); end
+
+  class << self
+    # source://activestorage//lib/active_storage/attached/model.rb#263
+    def validate_service_configuration(service_name, model_class, association_name); end
+
+    private
+
+    # source://activestorage//lib/active_storage/attached/model.rb#274
+    def validate_global_service_configuration(model_class); end
+  end
 end
 
 # source://activestorage//lib/active_storage/attached/model.rb#54
 module ActiveStorage::Attached::Model::ClassMethods
-  # source://activestorage//lib/active_storage/attached/model.rb#206
+  # source://activestorage//lib/active_storage/attached/model.rb#210
   def has_many_attached(name, dependent: T.unsafe(nil), service: T.unsafe(nil), strict_loading: T.unsafe(nil)); end
 
-  # source://activestorage//lib/active_storage/attached/model.rb#106
+  # source://activestorage//lib/active_storage/attached/model.rb#108
   def has_one_attached(name, dependent: T.unsafe(nil), service: T.unsafe(nil), strict_loading: T.unsafe(nil)); end
 end
 
@@ -964,11 +978,18 @@ class ActiveStorage::Attachment < ::ActiveStorage::Record
   def transformations_by_name(transformations); end
 
   class << self
-    def __callbacks; end
-    def _reflections; end
-    def _validators; end
-    def defined_enums; end
     def with_all_variant_records(*args, **_arg1); end
+
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr__reflections; end
+    def __class_attr__reflections=(new_value); end
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 
@@ -997,13 +1018,18 @@ class ActiveStorage::BaseController < ::ActionController::Base
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
 
   class << self
-    def __callbacks; end
-    def etag_with_template_digest; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_etag_with_template_digest; end
+    def __class_attr_etag_with_template_digest=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -1067,17 +1093,12 @@ class ActiveStorage::Blob < ::ActiveStorage::Record
   def web_image?; end
 
   class << self
-    def __callbacks; end
-    def _reflections; end
-    def _validators; end
-    def attachment_reflections; end
     def build_after_unfurling(io:, filename:, key: T.unsafe(nil), content_type: T.unsafe(nil), metadata: T.unsafe(nil), service_name: T.unsafe(nil), identify: T.unsafe(nil), record: T.unsafe(nil)); end
     def combine_signed_id_purposes(purpose); end
     def compose(blobs, filename:, key: T.unsafe(nil), content_type: T.unsafe(nil), metadata: T.unsafe(nil)); end
     def create_after_unfurling!(io:, filename:, key: T.unsafe(nil), content_type: T.unsafe(nil), metadata: T.unsafe(nil), service_name: T.unsafe(nil), identify: T.unsafe(nil), record: T.unsafe(nil)); end
     def create_and_upload!(io:, filename:, key: T.unsafe(nil), content_type: T.unsafe(nil), metadata: T.unsafe(nil), service_name: T.unsafe(nil), identify: T.unsafe(nil), record: T.unsafe(nil)); end
     def create_before_direct_upload!(filename:, byte_size:, checksum:, key: T.unsafe(nil), content_type: T.unsafe(nil), metadata: T.unsafe(nil), service_name: T.unsafe(nil), record: T.unsafe(nil)); end
-    def defined_enums; end
     def find_signed(id, record: T.unsafe(nil), purpose: T.unsafe(nil)); end
     def find_signed!(id, record: T.unsafe(nil), purpose: T.unsafe(nil)); end
     def generate_unique_secure_token(length: T.unsafe(nil)); end
@@ -1090,9 +1111,24 @@ class ActiveStorage::Blob < ::ActiveStorage::Record
     def services?; end
     def signed_id_verifier; end
     def unattached(*args, **_arg1); end
-    def validate_global_service_configuration; end
-    def validate_service_configuration(service_name, model_class, association_name); end
     def with_attached_preview_image(*args, **_arg1); end
+
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr__reflections; end
+    def __class_attr__reflections=(new_value); end
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_attachment_reflections; end
+    def __class_attr_attachment_reflections=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
+    def __class_attr_service; end
+    def __class_attr_service=(new_value); end
+    def __class_attr_services; end
+    def __class_attr_services=(new_value); end
   end
 end
 
@@ -1194,12 +1230,16 @@ class ActiveStorage::Blobs::ProxyController < ::ActiveStorage::BaseController
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -1210,20 +1250,28 @@ class ActiveStorage::Blobs::RedirectController < ::ActiveStorage::BaseController
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
 class ActiveStorage::Current < ::ActiveSupport::CurrentAttributes
   class << self
-    def defaults; end
     def url_options; end
     def url_options=(value); end
+
+    private
+
+    def __class_attr_defaults; end
+    def __class_attr_defaults=(new_value); end
   end
 end
 
@@ -1232,13 +1280,16 @@ class ActiveStorage::DirectUploadsController < ::ActiveStorage::BaseController
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def blob_args; end
   def direct_upload_json(blob); end
 
   class << self
-    def middleware_stack; end
+    private
+
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -1254,7 +1305,7 @@ class ActiveStorage::DiskController < ::ActiveStorage::BaseController
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def acceptable_content?(token); end
   def decode_verified_key; end
@@ -1262,8 +1313,12 @@ class ActiveStorage::DiskController < ::ActiveStorage::BaseController
   def named_disk_service(name); end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -1416,6 +1471,14 @@ class ActiveStorage::FixtureSet
 
     # source://activestorage//lib/active_storage/fixture_set.rb#45
     def file_fixture_path?; end
+
+    private
+
+    # source://activestorage//lib/active_storage/fixture_set.rb#45
+    def __class_attr_file_fixture_path; end
+
+    # source://activestorage//lib/active_storage/fixture_set.rb#45
+    def __class_attr_file_fixture_path=(new_value); end
   end
 end
 
@@ -1478,8 +1541,13 @@ class ActiveStorage::LogSubscriber < ::ActiveSupport::LogSubscriber
   def log_prefix_for_service(event); end
 
   class << self
+    private
+
     # source://activestorage//lib/active_storage/log_subscriber.rb#12
-    def log_levels; end
+    def __class_attr_log_levels; end
+
+    # source://activestorage//lib/active_storage/log_subscriber.rb#12
+    def __class_attr_log_levels=(new_value); end
   end
 end
 
@@ -1487,8 +1555,12 @@ class ActiveStorage::MirrorJob < ::ActiveStorage::BaseJob
   def perform(key, checksum:); end
 
   class << self
-    def queue_name; end
-    def rescue_handlers; end
+    private
+
+    def __class_attr_queue_name; end
+    def __class_attr_queue_name=(new_value); end
+    def __class_attr_rescue_handlers; end
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -1537,8 +1609,12 @@ class ActiveStorage::PreviewImageJob < ::ActiveStorage::BaseJob
   def perform(blob, variations); end
 
   class << self
-    def queue_name; end
-    def rescue_handlers; end
+    private
+
+    def __class_attr_queue_name; end
+    def __class_attr_queue_name=(new_value); end
+    def __class_attr_rescue_handlers; end
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -1699,8 +1775,12 @@ class ActiveStorage::PurgeJob < ::ActiveStorage::BaseJob
   def perform(blob); end
 
   class << self
-    def queue_name; end
-    def rescue_handlers; end
+    private
+
+    def __class_attr_queue_name; end
+    def __class_attr_queue_name=(new_value); end
+    def __class_attr_rescue_handlers; end
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -1709,8 +1789,12 @@ class ActiveStorage::Record < ::ActiveRecord::Base
   include ::ActiveStorage::Record::GeneratedAssociationMethods
 
   class << self
-    def _validators; end
-    def defined_enums; end
+    private
+
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 
@@ -1802,14 +1886,18 @@ class ActiveStorage::Representations::BaseController < ::ActiveStorage::BaseCont
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def blob_scope; end
   def set_representation; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -1823,12 +1911,16 @@ class ActiveStorage::Representations::ProxyController < ::ActiveStorage::Represe
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -1837,11 +1929,14 @@ class ActiveStorage::Representations::RedirectController < ::ActiveStorage::Repr
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
 
   class << self
-    def middleware_stack; end
+    private
+
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -2110,8 +2205,12 @@ class ActiveStorage::TransformJob < ::ActiveStorage::BaseJob
   def perform(blob, transformations); end
 
   class << self
-    def queue_name; end
-    def rescue_handlers; end
+    private
+
+    def __class_attr_queue_name; end
+    def __class_attr_queue_name=(new_value); end
+    def __class_attr_rescue_handlers; end
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -2181,7 +2280,7 @@ ActiveStorage::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActiveStorage::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://activestorage//lib/active_storage/gem_version.rb#13
-ActiveStorage::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActiveStorage::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://activestorage//lib/active_storage/gem_version.rb#15
 ActiveStorage::VERSION::STRING = T.let(T.unsafe(nil), String)
@@ -2221,12 +2320,20 @@ class ActiveStorage::VariantRecord < ::ActiveStorage::Record
   def autosave_associated_records_for_image_blob(*args); end
 
   class << self
-    def __callbacks; end
-    def _reflections; end
-    def _validators; end
-    def attachment_reflections; end
-    def defined_enums; end
     def with_attached_image(*args, **_arg1); end
+
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr__reflections; end
+    def __class_attr__reflections=(new_value); end
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_attachment_reflections; end
+    def __class_attr_attachment_reflections=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 

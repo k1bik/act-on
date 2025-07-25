@@ -193,9 +193,6 @@ class ActionText::Attachables::ContentAttachment
   def __callbacks; end
 
   # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
-  def __callbacks?; end
-
-  # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
   def _run_validate_callbacks(&block); end
 
   # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
@@ -249,16 +246,10 @@ class ActionText::Attachables::ContentAttachment
   # source://actiontext//lib/action_text/attachables/content_attachment.rb#28
   def to_s; end
 
-  # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
-  def validation_context; end
-
   private
 
   # source://actiontext//lib/action_text/attachables/content_attachment.rb#37
   def content_instance; end
-
-  # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
-  def validation_context=(_arg0); end
 
   class << self
     # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
@@ -266,9 +257,6 @@ class ActionText::Attachables::ContentAttachment
 
     # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
     def __callbacks=(value); end
-
-    # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
-    def __callbacks?; end
 
     # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
     def _validate_callbacks; end
@@ -296,6 +284,26 @@ class ActionText::Attachables::ContentAttachment
 
     # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
     def param_delimiter?; end
+
+    private
+
+    # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
+    def __class_attr___callbacks; end
+
+    # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
+    def __class_attr___callbacks=(new_value); end
+
+    # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
+    def __class_attr__validators; end
+
+    # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
+    def __class_attr__validators=(new_value); end
+
+    # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
+    def __class_attr_param_delimiter; end
+
+    # source://actiontext//lib/action_text/attachables/content_attachment.rb#8
+    def __class_attr_param_delimiter=(new_value); end
   end
 end
 
@@ -553,9 +561,6 @@ class ActionText::AttachmentGallery
   def __callbacks; end
 
   # source://actiontext//lib/action_text/attachment_gallery.rb#7
-  def __callbacks?; end
-
-  # source://actiontext//lib/action_text/attachment_gallery.rb#7
   def _run_validate_callbacks(&block); end
 
   # source://actiontext//lib/action_text/attachment_gallery.rb#7
@@ -587,23 +592,12 @@ class ActionText::AttachmentGallery
   # source://actiontext//lib/action_text/attachment_gallery.rb#64
   def size; end
 
-  # source://actiontext//lib/action_text/attachment_gallery.rb#7
-  def validation_context; end
-
-  private
-
-  # source://actiontext//lib/action_text/attachment_gallery.rb#7
-  def validation_context=(_arg0); end
-
   class << self
     # source://actiontext//lib/action_text/attachment_gallery.rb#7
     def __callbacks; end
 
     # source://actiontext//lib/action_text/attachment_gallery.rb#7
     def __callbacks=(value); end
-
-    # source://actiontext//lib/action_text/attachment_gallery.rb#7
-    def __callbacks?; end
 
     # source://actiontext//lib/action_text/attachment_gallery.rb#7
     def _validate_callbacks; end
@@ -646,6 +640,26 @@ class ActionText::AttachmentGallery
 
     # source://actiontext//lib/action_text/attachment_gallery.rb#47
     def selector; end
+
+    private
+
+    # source://actiontext//lib/action_text/attachment_gallery.rb#7
+    def __class_attr___callbacks; end
+
+    # source://actiontext//lib/action_text/attachment_gallery.rb#7
+    def __class_attr___callbacks=(new_value); end
+
+    # source://actiontext//lib/action_text/attachment_gallery.rb#7
+    def __class_attr__validators; end
+
+    # source://actiontext//lib/action_text/attachment_gallery.rb#7
+    def __class_attr__validators=(new_value); end
+
+    # source://actiontext//lib/action_text/attachment_gallery.rb#7
+    def __class_attr_param_delimiter; end
+
+    # source://actiontext//lib/action_text/attachment_gallery.rb#7
+    def __class_attr_param_delimiter=(new_value); end
   end
 end
 
@@ -714,13 +728,13 @@ end
 
 # source://actiontext//lib/action_text/attribute.rb#9
 module ActionText::Attribute::ClassMethods
-  # source://actiontext//lib/action_text/attribute.rb#50
-  def has_rich_text(name, encrypted: T.unsafe(nil), strict_loading: T.unsafe(nil)); end
+  # source://actiontext//lib/action_text/attribute.rb#53
+  def has_rich_text(name, encrypted: T.unsafe(nil), strict_loading: T.unsafe(nil), store_if_blank: T.unsafe(nil)); end
 
-  # source://actiontext//lib/action_text/attribute.rb#80
+  # source://actiontext//lib/action_text/attribute.rb#100
   def rich_text_association_names; end
 
-  # source://actiontext//lib/action_text/attribute.rb#75
+  # source://actiontext//lib/action_text/attribute.rb#95
   def with_all_rich_text; end
 end
 
@@ -933,9 +947,14 @@ class ActionText::EncryptedRichText < ::ActionText::RichText
   include ::ActionText::EncryptedRichText::GeneratedAssociationMethods
 
   class << self
-    def _validators; end
-    def defined_enums; end
-    def encrypted_attributes; end
+    private
+
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
+    def __class_attr_encrypted_attributes; end
+    def __class_attr_encrypted_attributes=(new_value); end
   end
 end
 
@@ -1174,8 +1193,12 @@ class ActionText::Record < ::ActiveRecord::Base
   include ::ActionText::Record::GeneratedAssociationMethods
 
   class << self
-    def _validators; end
-    def defined_enums; end
+    private
+
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 
@@ -1219,12 +1242,20 @@ class ActionText::RichText < ::ActionText::Record
   def validate_associated_records_for_embeds_blobs(*args); end
 
   class << self
-    def __callbacks; end
-    def _reflections; end
-    def _validators; end
-    def attachment_reflections; end
-    def defined_enums; end
     def with_attached_embeds(*args, **_arg1); end
+
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr__reflections; end
+    def __class_attr__reflections=(new_value); end
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_attachment_reflections; end
+    def __class_attr_attachment_reflections=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 
@@ -1273,6 +1304,7 @@ end
 
 module ActionText::TagHelper
   def rich_text_area_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
+  def rich_textarea_tag(name, value = T.unsafe(nil), options = T.unsafe(nil)); end
 
   class << self
     def id; end
@@ -1357,7 +1389,7 @@ ActionText::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionText::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://actiontext//lib/action_text/gem_version.rb#15
-ActionText::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActionText::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://actiontext//lib/action_text/gem_version.rb#17
 ActionText::VERSION::STRING = T.let(T.unsafe(nil), String)
@@ -1381,6 +1413,7 @@ end
 
 class ActionView::Helpers::FormBuilder
   def rich_text_area(method, options = T.unsafe(nil)); end
+  def rich_textarea(method, options = T.unsafe(nil)); end
 end
 
 module ActionView::Helpers::FormHelper
@@ -1393,6 +1426,7 @@ module ActionView::Helpers::FormHelper
   mixes_in_class_methods ::ActionView::Helpers::SanitizeHelper::ClassMethods
 
   def rich_text_area(object_name, method, options = T.unsafe(nil)); end
+  def rich_textarea(object_name, method, options = T.unsafe(nil)); end
 end
 
 module ActionView::Helpers::Tags; end

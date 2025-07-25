@@ -38,7 +38,7 @@ module ActionCable
   end
 end
 
-# source://actioncable//lib/action_cable/channel/base.rb#10
+# source://actioncable//lib/action_cable/channel/base.rb#9
 module ActionCable::Channel; end
 
 # # Action Cable Channel Base
@@ -141,7 +141,7 @@ module ActionCable::Channel; end
 # not have access to the chat room. On the client-side, the `Channel#rejected`
 # callback will get invoked when the server rejects the subscription request.
 #
-# source://actioncable//lib/action_cable/channel/base.rb#110
+# source://actioncable//lib/action_cable/channel/base.rb#109
 class ActionCable::Channel::Base
   include ::ActiveSupport::Callbacks
   include ::ActionCable::Channel::Callbacks
@@ -160,172 +160,166 @@ class ActionCable::Channel::Base
 
   # @return [Base] a new instance of Base
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def initialize(connection, identifier, params = T.unsafe(nil)); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#111
+  # source://actioncable//lib/action_cable/channel/base.rb#110
   def __callbacks; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#111
-  def __callbacks?; end
-
-  # source://actioncable//lib/action_cable/channel/base.rb#111
+  # source://actioncable//lib/action_cable/channel/base.rb#110
   def _run_subscribe_callbacks(&block); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#111
+  # source://actioncable//lib/action_cable/channel/base.rb#110
   def _run_unsubscribe_callbacks(&block); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#111
+  # source://actioncable//lib/action_cable/channel/base.rb#110
   def _subscribe_callbacks; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#111
+  # source://actioncable//lib/action_cable/channel/base.rb#110
   def _unsubscribe_callbacks; end
 
   # Returns the value of attribute connection.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#118
+  # source://actioncable//lib/action_cable/channel/base.rb#117
   def connection; end
 
   # Returns the value of attribute identifier.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#118
+  # source://actioncable//lib/action_cable/channel/base.rb#117
   def identifier; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#119
+  # source://actioncable//lib/action_cable/channel/base.rb#118
   def logger(*_arg0, **_arg1, &_arg2); end
 
   # Returns the value of attribute params.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#118
+  # source://actioncable//lib/action_cable/channel/base.rb#117
   def params; end
 
   # Extract the action name from the passed data and process it via the channel.
   # The process will ensure that the action requested is a public method on the
   # channel declared by the user (so not one of the callbacks like #subscribed).
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def perform_action(data); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#112
+  # source://actioncable//lib/action_cable/channel/base.rb#111
   def periodic_timers=(_arg0); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#116
+  # source://actioncable//lib/action_cable/channel/base.rb#115
   def rescue_handlers; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#116
+  # source://actioncable//lib/action_cable/channel/base.rb#115
   def rescue_handlers=(_arg0); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#116
+  # source://actioncable//lib/action_cable/channel/base.rb#115
   def rescue_handlers?; end
 
   # This method is called after subscription has been added to the connection and
   # confirms or rejects the subscription.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def subscribe_to_channel; end
 
   # Called by the cable connection when it's cut, so the channel has a chance to
   # cleanup with callbacks. This method is not intended to be called directly by
   # the user. Instead, override the #unsubscribed callback.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def unsubscribe_from_channel; end
 
   private
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def action_signature(action, data); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def defer_subscription_confirmation!; end
 
   # @return [Boolean]
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def defer_subscription_confirmation?; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def delegate_connection_identifiers; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def dispatch_action(action, data); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def ensure_confirmation_sent; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def extract_action(data); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def parameter_filter; end
 
   # @return [Boolean]
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def processable_action?(action); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def reject; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def reject_subscription; end
 
   # Called once a consumer has become a subscriber of the channel. Usually the
   # place to set up any streams you want this channel to be sending to the
   # subscriber.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def subscribed; end
 
   # @return [Boolean]
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def subscription_confirmation_sent?; end
 
   # @return [Boolean]
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def subscription_rejected?; end
 
   # Transmit a hash of data to the subscriber. The hash will automatically be
   # wrapped in a JSON envelope with the proper channel identifier marked as the
   # recipient.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def transmit(data, via: T.unsafe(nil)); end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def transmit_subscription_confirmation; end
 
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def transmit_subscription_rejection; end
 
   # Called once a consumer has cut its cable connection. Can be used for cleaning
   # up connections or marking users as offline or the like.
   #
-  # source://actioncable//lib/action_cable/channel/base.rb#151
+  # source://actioncable//lib/action_cable/channel/base.rb#150
   def unsubscribed; end
 
   class << self
-    # source://actioncable//lib/action_cable/channel/base.rb#111
+    # source://actioncable//lib/action_cable/channel/base.rb#110
     def __callbacks; end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#111
+    # source://actioncable//lib/action_cable/channel/base.rb#110
     def __callbacks=(value); end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#111
-    def __callbacks?; end
-
-    # source://actioncable//lib/action_cable/channel/base.rb#111
+    # source://actioncable//lib/action_cable/channel/base.rb#110
     def _subscribe_callbacks; end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#111
+    # source://actioncable//lib/action_cable/channel/base.rb#110
     def _subscribe_callbacks=(value); end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#111
+    # source://actioncable//lib/action_cable/channel/base.rb#110
     def _unsubscribe_callbacks; end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#111
+    # source://actioncable//lib/action_cable/channel/base.rb#110
     def _unsubscribe_callbacks=(value); end
 
     # A list of method names that should be considered actions. This includes all
@@ -336,39 +330,57 @@ class ActionCable::Channel::Base
     # #### Returns
     # *   `Set` - A set of all methods that should be considered actions.
     #
-    # source://actioncable//lib/action_cable/channel/base.rb#129
+    # source://actioncable//lib/action_cable/channel/base.rb#128
     def action_methods; end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#112
+    # source://actioncable//lib/action_cable/channel/base.rb#111
     def periodic_timers; end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#112
+    # source://actioncable//lib/action_cable/channel/base.rb#111
     def periodic_timers=(value); end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#112
+    # source://actioncable//lib/action_cable/channel/base.rb#111
     def periodic_timers?; end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#116
+    # source://actioncable//lib/action_cable/channel/base.rb#115
     def rescue_handlers; end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#116
+    # source://actioncable//lib/action_cable/channel/base.rb#115
     def rescue_handlers=(value); end
 
-    # source://actioncable//lib/action_cable/channel/base.rb#116
+    # source://actioncable//lib/action_cable/channel/base.rb#115
     def rescue_handlers?; end
 
     private
+
+    # source://actioncable//lib/action_cable/channel/base.rb#110
+    def __class_attr___callbacks; end
+
+    # source://actioncable//lib/action_cable/channel/base.rb#110
+    def __class_attr___callbacks=(new_value); end
+
+    # source://actioncable//lib/action_cable/channel/base.rb#111
+    def __class_attr_periodic_timers; end
+
+    # source://actioncable//lib/action_cable/channel/base.rb#111
+    def __class_attr_periodic_timers=(new_value); end
+
+    # source://actioncable//lib/action_cable/channel/base.rb#115
+    def __class_attr_rescue_handlers; end
+
+    # source://actioncable//lib/action_cable/channel/base.rb#115
+    def __class_attr_rescue_handlers=(new_value); end
 
     # action_methods are cached and there is sometimes need to refresh them.
     # ::clear_action_methods! allows you to do that, so next time you run
     # action_methods, they will be recalculated.
     #
-    # source://actioncable//lib/action_cable/channel/base.rb#145
+    # source://actioncable//lib/action_cable/channel/base.rb#144
     def clear_action_methods!; end
 
     # Refresh the cached action_methods when a new action_method is added.
     #
-    # source://actioncable//lib/action_cable/channel/base.rb#150
+    # source://actioncable//lib/action_cable/channel/base.rb#149
     def method_added(name); end
   end
 end
@@ -452,12 +464,10 @@ module ActionCable::Channel::Callbacks
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
   end
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
   end
 end
 
@@ -961,6 +971,14 @@ class ActionCable::Channel::TestCase < ::ActiveSupport::TestCase
 
     # source://actioncable//lib/action_cable/channel/test_case.rb#200
     def _channel_class?; end
+
+    private
+
+    # source://actioncable//lib/action_cable/channel/test_case.rb#200
+    def __class_attr__channel_class; end
+
+    # source://actioncable//lib/action_cable/channel/test_case.rb#200
+    def __class_attr__channel_class=(new_value); end
   end
 end
 
@@ -1105,7 +1123,7 @@ module ActionCable::Channel::TestCase::Behavior::ClassMethods
   def tests(channel); end
 end
 
-# source://actioncable//lib/action_cable/connection/identification.rb#8
+# source://actioncable//lib/action_cable/connection/identification.rb#6
 module ActionCable::Connection; end
 
 # source://actioncable//lib/action_cable/connection/test_case.rb#22
@@ -1203,9 +1221,6 @@ class ActionCable::Connection::Base
 
   # source://actioncable//lib/action_cable/connection/base.rb#61
   def __callbacks; end
-
-  # source://actioncable//lib/action_cable/connection/base.rb#61
-  def __callbacks?; end
 
   # source://actioncable//lib/action_cable/connection/base.rb#61
   def _command_callbacks; end
@@ -1405,9 +1420,6 @@ class ActionCable::Connection::Base
     def __callbacks=(value); end
 
     # source://actioncable//lib/action_cable/connection/base.rb#61
-    def __callbacks?; end
-
-    # source://actioncable//lib/action_cable/connection/base.rb#61
     def _command_callbacks; end
 
     # source://actioncable//lib/action_cable/connection/base.rb#61
@@ -1430,6 +1442,26 @@ class ActionCable::Connection::Base
 
     # source://actioncable//lib/action_cable/connection/base.rb#62
     def rescue_handlers?; end
+
+    private
+
+    # source://actioncable//lib/action_cable/connection/base.rb#61
+    def __class_attr___callbacks; end
+
+    # source://actioncable//lib/action_cable/connection/base.rb#61
+    def __class_attr___callbacks=(new_value); end
+
+    # source://actioncable//lib/action_cable/connection/base.rb#58
+    def __class_attr_identifiers; end
+
+    # source://actioncable//lib/action_cable/connection/base.rb#58
+    def __class_attr_identifiers=(new_value); end
+
+    # source://actioncable//lib/action_cable/connection/base.rb#62
+    def __class_attr_rescue_handlers; end
+
+    # source://actioncable//lib/action_cable/connection/base.rb#62
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -1472,12 +1504,10 @@ module ActionCable::Connection::Callbacks
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
   end
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
   end
 end
 
@@ -1579,7 +1609,7 @@ ActionCable::Connection::ClientSocket::CONNECTING = T.let(T.unsafe(nil), Integer
 # source://actioncable//lib/action_cable/connection/client_socket.rb#30
 ActionCable::Connection::ClientSocket::OPEN = T.let(T.unsafe(nil), Integer)
 
-# source://actioncable//lib/action_cable/connection/identification.rb#9
+# source://actioncable//lib/action_cable/connection/identification.rb#7
 module ActionCable::Connection::Identification
   extend ::ActiveSupport::Concern
   include GeneratedInstanceMethods
@@ -1590,12 +1620,12 @@ module ActionCable::Connection::Identification
   # Return a single connection identifier that combines the value of all the
   # registered identifiers into a single gid.
   #
-  # source://actioncable//lib/action_cable/connection/identification.rb#31
+  # source://actioncable//lib/action_cable/connection/identification.rb#29
   def connection_identifier; end
 
   private
 
-  # source://actioncable//lib/action_cable/connection/identification.rb#40
+  # source://actioncable//lib/action_cable/connection/identification.rb#38
   def connection_gid(ids); end
 
   module GeneratedClassMethods
@@ -1611,7 +1641,7 @@ module ActionCable::Connection::Identification
   end
 end
 
-# source://actioncable//lib/action_cable/connection/identification.rb#16
+# source://actioncable//lib/action_cable/connection/identification.rb#14
 module ActionCable::Connection::Identification::ClassMethods
   # Mark a key as being a connection identifier index that can then be used to
   # find the specific connection again later. Common identifiers are current_user
@@ -1620,7 +1650,7 @@ module ActionCable::Connection::Identification::ClassMethods
   # Note that anything marked as an identifier will automatically create a
   # delegate by the same name on any channel instances created off the connection.
   #
-  # source://actioncable//lib/action_cable/connection/identification.rb#23
+  # source://actioncable//lib/action_cable/connection/identification.rb#21
   def identified_by(*identifiers); end
 end
 
@@ -1886,11 +1916,8 @@ end
 #
 # ## Basic example
 #
-# Unit tests are written as follows:
-#
-# 1.  Simulate a connection attempt by calling `connect`.
-# 2.  Assert state, e.g. identifiers, has been assigned.
-#
+# Unit tests are written by first simulating a connection attempt by calling
+# `connect` and then asserting state, e.g. identifiers, have been assigned.
 #
 #     class ApplicationCable::ConnectionTest < ActionCable::Connection::TestCase
 #       def test_connects_with_proper_cookie
@@ -1949,7 +1976,7 @@ end
 #       tests ApplicationCable::Connection
 #     end
 #
-# source://actioncable//lib/action_cable/connection/test_case.rb#141
+# source://actioncable//lib/action_cable/connection/test_case.rb#138
 class ActionCable::Connection::TestCase < ::ActiveSupport::TestCase
   include ::ActiveSupport::Testing::ConstantLookup
   include ::ActionCable::Connection::Assertions
@@ -1957,31 +1984,39 @@ class ActionCable::Connection::TestCase < ::ActiveSupport::TestCase
   extend ::ActiveSupport::Testing::ConstantLookup::ClassMethods
   extend ::ActionCable::Connection::TestCase::Behavior::ClassMethods
 
-  # source://actioncable//lib/action_cable/connection/test_case.rb#151
+  # source://actioncable//lib/action_cable/connection/test_case.rb#148
   def _connection_class; end
 
-  # source://actioncable//lib/action_cable/connection/test_case.rb#151
+  # source://actioncable//lib/action_cable/connection/test_case.rb#148
   def _connection_class=(_arg0); end
 
-  # source://actioncable//lib/action_cable/connection/test_case.rb#151
+  # source://actioncable//lib/action_cable/connection/test_case.rb#148
   def _connection_class?; end
 
-  # source://actioncable//lib/action_cable/connection/test_case.rb#153
+  # source://actioncable//lib/action_cable/connection/test_case.rb#150
   def connection; end
 
   class << self
-    # source://actioncable//lib/action_cable/connection/test_case.rb#151
+    # source://actioncable//lib/action_cable/connection/test_case.rb#148
     def _connection_class; end
 
-    # source://actioncable//lib/action_cable/connection/test_case.rb#151
+    # source://actioncable//lib/action_cable/connection/test_case.rb#148
     def _connection_class=(value); end
 
-    # source://actioncable//lib/action_cable/connection/test_case.rb#151
+    # source://actioncable//lib/action_cable/connection/test_case.rb#148
     def _connection_class?; end
+
+    private
+
+    # source://actioncable//lib/action_cable/connection/test_case.rb#148
+    def __class_attr__connection_class; end
+
+    # source://actioncable//lib/action_cable/connection/test_case.rb#148
+    def __class_attr__connection_class=(new_value); end
   end
 end
 
-# source://actioncable//lib/action_cable/connection/test_case.rb#142
+# source://actioncable//lib/action_cable/connection/test_case.rb#139
 module ActionCable::Connection::TestCase::Behavior
   include ::ActionCable::Connection::Assertions
   extend ::ActiveSupport::Concern
@@ -2001,20 +2036,20 @@ module ActionCable::Connection::TestCase::Behavior
   # *   session – session data (Hash)
   # *   env – additional Rack env configuration (Hash)
   #
-  # source://actioncable//lib/action_cable/connection/test_case.rb#195
+  # source://actioncable//lib/action_cable/connection/test_case.rb#192
   def connect(path = T.unsafe(nil), **request_params); end
 
-  # source://actioncable//lib/action_cable/connection/test_case.rb#215
+  # source://actioncable//lib/action_cable/connection/test_case.rb#212
   def cookies; end
 
   # Exert #disconnect on the connection under test.
   #
-  # source://actioncable//lib/action_cable/connection/test_case.rb#208
+  # source://actioncable//lib/action_cable/connection/test_case.rb#205
   def disconnect; end
 
   private
 
-  # source://actioncable//lib/action_cable/connection/test_case.rb#220
+  # source://actioncable//lib/action_cable/connection/test_case.rb#217
   def build_test_request(path, params: T.unsafe(nil), headers: T.unsafe(nil), session: T.unsafe(nil), env: T.unsafe(nil)); end
 
   module GeneratedClassMethods
@@ -2030,21 +2065,21 @@ module ActionCable::Connection::TestCase::Behavior
   end
 end
 
-# source://actioncable//lib/action_cable/connection/test_case.rb#158
+# source://actioncable//lib/action_cable/connection/test_case.rb#155
 module ActionCable::Connection::TestCase::Behavior::ClassMethods
-  # source://actioncable//lib/action_cable/connection/test_case.rb#170
+  # source://actioncable//lib/action_cable/connection/test_case.rb#167
   def connection_class; end
 
   # @raise [NonInferrableConnectionError]
   #
-  # source://actioncable//lib/action_cable/connection/test_case.rb#178
+  # source://actioncable//lib/action_cable/connection/test_case.rb#175
   def determine_default_connection(name); end
 
-  # source://actioncable//lib/action_cable/connection/test_case.rb#159
+  # source://actioncable//lib/action_cable/connection/test_case.rb#156
   def tests(connection); end
 end
 
-# source://actioncable//lib/action_cable/connection/test_case.rb#145
+# source://actioncable//lib/action_cable/connection/test_case.rb#142
 ActionCable::Connection::TestCase::Behavior::DEFAULT_PATH = T.let(T.unsafe(nil), String)
 
 # source://actioncable//lib/action_cable/connection/test_case.rb#57
@@ -2239,7 +2274,7 @@ end
 # `ActionCable.server.remote_connections.where(*)`. Exists solely for the
 # purpose of calling #disconnect on that connection.
 #
-# source://actioncable//lib/action_cable/remote_connections.rb#48
+# source://actioncable//lib/action_cable/remote_connections.rb#47
 class ActionCable::RemoteConnections::RemoteConnection
   include ::ActionCable::Connection::InternalChannel
   include ::ActionCable::Connection::Identification
@@ -2247,55 +2282,63 @@ class ActionCable::RemoteConnections::RemoteConnection
 
   # @return [RemoteConnection] a new instance of RemoteConnection
   #
-  # source://actioncable//lib/action_cable/remote_connections.rb#53
+  # source://actioncable//lib/action_cable/remote_connections.rb#52
   def initialize(server, ids); end
 
   # Uses the internal channel to disconnect the connection.
   #
-  # source://actioncable//lib/action_cable/remote_connections.rb#59
+  # source://actioncable//lib/action_cable/remote_connections.rb#58
   def disconnect(reconnect: T.unsafe(nil)); end
 
-  # source://actioncable//lib/action_cable/remote_connections.rb#51
+  # source://actioncable//lib/action_cable/remote_connections.rb#50
   def identifiers; end
 
-  # source://actioncable//lib/action_cable/remote_connections.rb#51
+  # source://actioncable//lib/action_cable/remote_connections.rb#50
   def identifiers=(_arg0); end
 
-  # source://actioncable//lib/action_cable/remote_connections.rb#51
+  # source://actioncable//lib/action_cable/remote_connections.rb#50
   def identifiers?; end
 
   protected
 
   # Returns the value of attribute server.
   #
-  # source://actioncable//lib/action_cable/remote_connections.rb#69
+  # source://actioncable//lib/action_cable/remote_connections.rb#68
   def server; end
 
   private
 
   # @raise [InvalidIdentifiersError]
   #
-  # source://actioncable//lib/action_cable/remote_connections.rb#72
+  # source://actioncable//lib/action_cable/remote_connections.rb#71
   def set_identifier_instance_vars(ids); end
 
   # @return [Boolean]
   #
-  # source://actioncable//lib/action_cable/remote_connections.rb#77
+  # source://actioncable//lib/action_cable/remote_connections.rb#76
   def valid_identifiers?(ids); end
 
   class << self
-    # source://actioncable//lib/action_cable/remote_connections.rb#51
+    # source://actioncable//lib/action_cable/remote_connections.rb#50
     def identifiers; end
 
-    # source://actioncable//lib/action_cable/remote_connections.rb#51
+    # source://actioncable//lib/action_cable/remote_connections.rb#50
     def identifiers=(value); end
 
-    # source://actioncable//lib/action_cable/remote_connections.rb#51
+    # source://actioncable//lib/action_cable/remote_connections.rb#50
     def identifiers?; end
+
+    private
+
+    # source://actioncable//lib/action_cable/remote_connections.rb#50
+    def __class_attr_identifiers; end
+
+    # source://actioncable//lib/action_cable/remote_connections.rb#50
+    def __class_attr_identifiers=(new_value); end
   end
 end
 
-# source://actioncable//lib/action_cable/remote_connections.rb#49
+# source://actioncable//lib/action_cable/remote_connections.rb#48
 class ActionCable::RemoteConnections::RemoteConnection::InvalidIdentifiersError < ::StandardError; end
 
 # source://actioncable//lib/action_cable/server/base.rb#8
@@ -2703,9 +2746,6 @@ class ActionCable::Server::Worker
   # source://actioncable//lib/action_cable/server/worker.rb#13
   def __callbacks; end
 
-  # source://actioncable//lib/action_cable/server/worker.rb#13
-  def __callbacks?; end
-
   # source://actioncable//lib/action_cable/server/worker.rb#16
   def _run_work_callbacks(&block); end
 
@@ -2758,9 +2798,6 @@ class ActionCable::Server::Worker
     # source://actioncable//lib/action_cable/server/worker.rb#13
     def __callbacks=(value); end
 
-    # source://actioncable//lib/action_cable/server/worker.rb#13
-    def __callbacks?; end
-
     # source://actioncable//lib/action_cable/server/worker.rb#16
     def _work_callbacks; end
 
@@ -2772,6 +2809,14 @@ class ActionCable::Server::Worker
 
     # source://actioncable//lib/action_cable/server/worker.rb#15
     def connection=(obj); end
+
+    private
+
+    # source://actioncable//lib/action_cable/server/worker.rb#13
+    def __class_attr___callbacks; end
+
+    # source://actioncable//lib/action_cable/server/worker.rb#13
+    def __class_attr___callbacks=(new_value); end
   end
 end
 
@@ -2917,7 +2962,7 @@ class ActionCable::SubscriptionAdapter::PostgreSQL < ::ActionCable::Subscription
   # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#29
   def unsubscribe(channel, callback); end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#52
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#51
   def with_broadcast_connection(&block); end
 
   # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#37
@@ -2925,36 +2970,36 @@ class ActionCable::SubscriptionAdapter::PostgreSQL < ::ActionCable::Subscription
 
   private
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#61
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#60
   def channel_identifier(channel); end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#65
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#64
   def listener; end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#69
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#68
   def verify!(pg_conn); end
 end
 
-# source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#75
+# source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#74
 class ActionCable::SubscriptionAdapter::PostgreSQL::Listener < ::ActionCable::SubscriptionAdapter::SubscriberMap
   # @return [Listener] a new instance of Listener
   #
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#76
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#75
   def initialize(adapter, event_loop); end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#120
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#119
   def add_channel(channel, on_success); end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#128
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#127
   def invoke_callback(*_arg0); end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#89
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#88
   def listen; end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#124
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#123
   def remove_channel(channel); end
 
-  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#115
+  # source://actioncable//lib/action_cable/subscription_adapter/postgresql.rb#114
   def shutdown; end
 end
 
@@ -3138,7 +3183,7 @@ ActionCable::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionCable::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://actioncable//lib/action_cable/gem_version.rb#15
-ActionCable::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActionCable::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://actioncable//lib/action_cable/gem_version.rb#17
 ActionCable::VERSION::STRING = T.let(T.unsafe(nil), String)

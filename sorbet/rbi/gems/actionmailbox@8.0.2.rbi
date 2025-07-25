@@ -194,9 +194,6 @@ class ActionMailbox::Base
   def __callbacks; end
 
   # source://actionmailbox//lib/action_mailbox/base.rb#68
-  def __callbacks?; end
-
-  # source://actionmailbox//lib/action_mailbox/base.rb#68
   def _process_callbacks; end
 
   # source://actionmailbox//lib/action_mailbox/base.rb#68
@@ -271,9 +268,6 @@ class ActionMailbox::Base
     def __callbacks=(value); end
 
     # source://actionmailbox//lib/action_mailbox/base.rb#68
-    def __callbacks?; end
-
-    # source://actionmailbox//lib/action_mailbox/base.rb#68
     def _process_callbacks; end
 
     # source://actionmailbox//lib/action_mailbox/base.rb#68
@@ -296,13 +290,27 @@ class ActionMailbox::Base
 
     # source://actionmailbox//lib/action_mailbox/base.rb#68
     def router=(val); end
+
+    private
+
+    # source://actionmailbox//lib/action_mailbox/base.rb#68
+    def __class_attr___callbacks; end
+
+    # source://actionmailbox//lib/action_mailbox/base.rb#68
+    def __class_attr___callbacks=(new_value); end
+
+    # source://actionmailbox//lib/action_mailbox/base.rb#67
+    def __class_attr_rescue_handlers; end
+
+    # source://actionmailbox//lib/action_mailbox/base.rb#67
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
 class ActionMailbox::BaseController < ::ActionController::Base
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def authenticate_by_password; end
   def ensure_configured; end
@@ -310,8 +318,12 @@ class ActionMailbox::BaseController < ::ActionController::Base
   def password; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -333,12 +345,10 @@ module ActionMailbox::Callbacks
   module GeneratedClassMethods
     def __callbacks; end
     def __callbacks=(value); end
-    def __callbacks?; end
   end
 
   module GeneratedInstanceMethods
     def __callbacks; end
-    def __callbacks?; end
   end
 end
 
@@ -376,12 +386,7 @@ class ActionMailbox::InboundEmail < ::ActionMailbox::Record
   def source; end
 
   class << self
-    def __callbacks; end
-    def _reflections; end
-    def _validators; end
-    def attachment_reflections; end
     def bounced(*args, **_arg1); end
-    def defined_enums; end
     def delivered(*args, **_arg1); end
     def failed(*args, **_arg1); end
     def not_bounced(*args, **_arg1); end
@@ -393,6 +398,19 @@ class ActionMailbox::InboundEmail < ::ActionMailbox::Record
     def processing(*args, **_arg1); end
     def statuses; end
     def with_attached_raw_email(*args, **_arg1); end
+
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr__reflections; end
+    def __class_attr__reflections=(new_value); end
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_attachment_reflections; end
+    def __class_attr_attachment_reflections=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 
@@ -462,9 +480,14 @@ class ActionMailbox::IncinerationJob < ::ActiveJob::Base
   def perform(inbound_email); end
 
   class << self
-    def queue_name; end
-    def rescue_handlers; end
     def schedule(inbound_email); end
+
+    private
+
+    def __class_attr_queue_name; end
+    def __class_attr_queue_name=(new_value); end
+    def __class_attr_rescue_handlers; end
+    def __class_attr_rescue_handlers=(new_value); end
   end
 end
 
@@ -476,7 +499,7 @@ class ActionMailbox::Ingresses::Mailgun::InboundEmailsController < ::ActionMailb
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def authenticate; end
   def authenticated?; end
@@ -484,8 +507,12 @@ class ActionMailbox::Ingresses::Mailgun::InboundEmailsController < ::ActionMailb
   def mail; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -513,7 +540,7 @@ class ActionMailbox::Ingresses::Mandrill::InboundEmailsController < ::ActionMail
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def authenticate; end
   def authenticated?; end
@@ -522,8 +549,12 @@ class ActionMailbox::Ingresses::Mandrill::InboundEmailsController < ::ActionMail
   def raw_emails; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -548,12 +579,17 @@ class ActionMailbox::Ingresses::Postmark::InboundEmailsController < ::ActionMail
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
+  def mail; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -564,13 +600,17 @@ class ActionMailbox::Ingresses::Relay::InboundEmailsController < ::ActionMailbox
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def require_valid_rfc822_message; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -581,14 +621,18 @@ class ActionMailbox::Ingresses::Sendgrid::InboundEmailsController < ::ActionMail
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def envelope; end
   def mail; end
 
   class << self
-    def __callbacks; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -597,8 +641,12 @@ class ActionMailbox::Record < ::ActiveRecord::Base
   include ::ActionMailbox::Record::GeneratedAssociationMethods
 
   class << self
-    def _validators; end
-    def defined_enums; end
+    private
+
+    def __class_attr__validators; end
+    def __class_attr__validators=(new_value); end
+    def __class_attr_defined_enums; end
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 
@@ -688,7 +736,10 @@ class ActionMailbox::RoutingJob < ::ActiveJob::Base
   def perform(inbound_email); end
 
   class << self
-    def queue_name; end
+    private
+
+    def __class_attr_queue_name; end
+    def __class_attr_queue_name=(new_value); end
   end
 end
 
@@ -793,7 +844,7 @@ ActionMailbox::VERSION::MAJOR = T.let(T.unsafe(nil), Integer)
 ActionMailbox::VERSION::MINOR = T.let(T.unsafe(nil), Integer)
 
 # source://actionmailbox//lib/action_mailbox/gem_version.rb#13
-ActionMailbox::VERSION::PRE = T.let(T.unsafe(nil), String)
+ActionMailbox::VERSION::PRE = T.let(T.unsafe(nil), T.untyped)
 
 # source://actionmailbox//lib/action_mailbox/gem_version.rb#15
 ActionMailbox::VERSION::STRING = T.let(T.unsafe(nil), String)
@@ -863,10 +914,13 @@ class Rails::Conductor::ActionMailbox::InboundEmails::SourcesController < ::Rail
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
 
   class << self
-    def middleware_stack; end
+    private
+
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -878,13 +932,16 @@ class Rails::Conductor::ActionMailbox::InboundEmailsController < ::Rails::Conduc
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def create_inbound_email(mail); end
   def mail_params; end
   def new_mail; end
 
   class << self
-    def middleware_stack; end
+    private
+
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -893,10 +950,13 @@ class Rails::Conductor::ActionMailbox::IncineratesController < ::Rails::Conducto
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
 
   class << self
-    def middleware_stack; end
+    private
+
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
@@ -905,25 +965,34 @@ class Rails::Conductor::ActionMailbox::ReroutesController < ::Rails::Conductor::
 
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def reroute(inbound_email); end
 
   class << self
-    def middleware_stack; end
+    private
+
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
 
 class Rails::Conductor::BaseController < ::ActionController::Base
   private
 
-  def _layout(lookup_context, formats); end
+  def _layout(lookup_context, formats, keys); end
   def _layout_from_proc; end
   def ensure_development_env; end
 
   class << self
-    def __callbacks; end
-    def _layout; end
-    def _layout_conditions; end
-    def middleware_stack; end
+    private
+
+    def __class_attr___callbacks; end
+    def __class_attr___callbacks=(new_value); end
+    def __class_attr__layout; end
+    def __class_attr__layout=(new_value); end
+    def __class_attr__layout_conditions; end
+    def __class_attr__layout_conditions=(new_value); end
+    def __class_attr_middleware_stack; end
+    def __class_attr_middleware_stack=(new_value); end
   end
 end
