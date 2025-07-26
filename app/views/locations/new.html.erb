@@ -1,2 +1,6 @@
 <%= render ViewComponents::Modal.new do %>
+  <%= form_with url: locations_path, model: location, method: :post do |f| %>
+    <%= f.text_field :address %>
+    <%= f.submit "Create Location" %>
+  <% end %>
 <% end %>

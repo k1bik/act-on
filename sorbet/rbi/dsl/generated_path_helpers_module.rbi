@@ -10,6 +10,9 @@ module GeneratedPathHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def locations_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def new_location_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
