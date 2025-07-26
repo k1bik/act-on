@@ -19,6 +19,12 @@ module GeneratedPathHelpersModule
   def new_rails_conductor_inbound_email_source_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def preview_view_component_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def preview_view_components_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def pwa_manifest_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

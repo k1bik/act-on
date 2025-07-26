@@ -1,0 +1,11 @@
+<turbo-frame id="modal">
+  <div class="fixed inset-0 bg-black/30 z-50 flex items-center justify-center" data-controller="modal">
+    <div class="relative bg-white rounded-lg shadow-xl <%= width %> max-h-[90vh] p-6">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute cursor-pointer top-2 right-2 size-6" data-action="click->modal#close">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+
+      <%= content %>
+    </div>
+  </div>
+</turbo-frame>

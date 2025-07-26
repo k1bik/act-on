@@ -19,6 +19,12 @@ module GeneratedUrlHelpersModule
   def new_rails_conductor_inbound_email_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def preview_view_component_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def preview_view_components_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def pwa_manifest_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
