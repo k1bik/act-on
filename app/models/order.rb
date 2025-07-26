@@ -13,6 +13,7 @@ class Order < ApplicationRecord
   belongs_to :location
 
   has_many :order_items
+  has_many :products, through: :order_items
 
   validates :due_date, presence: true
   validates :status, presence: true, inclusion: { in: STATUSES }

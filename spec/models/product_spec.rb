@@ -14,5 +14,6 @@ RSpec.describe Product, type: :model do
     it { is_expected.to validate_uniqueness_of(:name).scoped_to(:location_id) }
     it { is_expected.to validate_presence_of(:price) }
     it { is_expected.to validate_numericality_of(:price).is_greater_than(0) }
+    it { is_expected.to validate_length_of(:description).is_at_most(1000) }
   end
 end

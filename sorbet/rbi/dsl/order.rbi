@@ -400,6 +400,20 @@ class Order
     sig { params(value: T::Enumerable[::OrderItem]).void }
     def order_items=(value); end
 
+    sig { returns(T::Array[T.untyped]) }
+    def product_ids; end
+
+    sig { params(ids: T::Array[T.untyped]).returns(T::Array[T.untyped]) }
+    def product_ids=(ids); end
+
+    # This method is created by ActiveRecord on the `Order` class because it declared `has_many :products, through: :order_items`.
+    # 🔗 [Rails guide for `has_many_through` association](https://guides.rubyonrails.org/association_basics.html#the-has-many-through-association)
+    sig { returns(::Product::PrivateCollectionProxy) }
+    def products; end
+
+    sig { params(value: T::Enumerable[::Product]).void }
+    def products=(value); end
+
     sig { returns(T.nilable(::Location)) }
     def reload_location; end
 

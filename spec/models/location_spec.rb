@@ -10,6 +10,7 @@ RSpec.describe Location, type: :model do
 
     it { is_expected.to validate_presence_of(:address) }
     it { is_expected.to validate_uniqueness_of(:address).case_insensitive }
+    it { is_expected.to validate_length_of(:address).is_at_most(255) }
   end
 
   context "when is the location being archived" do
