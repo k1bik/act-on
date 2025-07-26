@@ -8,7 +8,7 @@ class CreateProduct < ActiveRecord::Migration[8.0]
       t.datetime :discarded_at, index: true
       t.timestamps
 
-      t.index [:location_id, :name], unique: true
+      t.index [ :location_id, :name ], unique: true
     end
   end
 end

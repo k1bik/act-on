@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_26_150555) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_26_152802) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "order_status", ["created", "in_progress", "awaiting_pickup", "completed"]
 
   create_table "locations", force: :cascade do |t|
     t.string "address", null: false
@@ -21,6 +25,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_150555) do
     t.datetime "updated_at", null: false
     t.index ["address"], name: "index_locations_on_address", unique: true
     t.index ["discarded_at"], name: "index_locations_on_discarded_at"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.enum "status", default: "created", null: false, enum_type: "order_status"
+    t.datetime "due_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_orders_on_location_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -36,5 +49,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_150555) do
     t.index ["location_id"], name: "index_products_on_location_id"
   end
 
+  add_foreign_key "orders", "locations"
   add_foreign_key "products", "locations"
 end

@@ -1,0 +1,16 @@
+require "rails_helper"
+
+RSpec.describe Order, type: :model do
+  describe "associations" do
+    it { is_expected.to belong_to(:location) }
+  end
+
+  describe "validations" do
+    let(:location) { create(:location) }
+
+    subject { build(:order, location:) }
+
+    it { is_expected.to validate_presence_of(:due_date) }
+    it { is_expected.to validate_presence_of(:status) }
+  end
+end
