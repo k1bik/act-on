@@ -49,10 +49,16 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   gem "tapioca",  "~> 0.17", require: false
+  gem "rspec-rails", "~> 8.0.0"
+  gem "factory_bot_rails"
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "sorbet"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 6.0"
 end
