@@ -10,14 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_26_144158) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_26_150555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "locations", force: :cascade do |t|
     t.string "address", null: false
+    t.datetime "discarded_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address"], name: "index_locations_on_address", unique: true
+    t.index ["discarded_at"], name: "index_locations_on_discarded_at"
   end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.string "name", null: false
+    t.decimal "price", precision: 10, scale: 2, null: false
+    t.text "description"
+    t.datetime "discarded_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discarded_at"], name: "index_products_on_discarded_at"
+    t.index ["location_id", "name"], name: "index_products_on_location_id_and_name", unique: true
+    t.index ["location_id"], name: "index_products_on_location_id"
+  end
+
+  add_foreign_key "products", "locations"
 end
