@@ -9,5 +9,8 @@ class Location < ApplicationRecord
 
   has_many :products
 
-  validates :address, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 255 }
+  validates :address,
+    presence: true,
+    uniqueness: { case_sensitive: false },
+    length: { maximum: 255 }
 end
