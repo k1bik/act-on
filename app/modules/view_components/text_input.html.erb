@@ -1,0 +1,12 @@
+<div class="text-input <%= "error-input" if errors.present? %>">
+  <div class="flex items-center gap-1">
+    <%= @form_object.label @field_name, @label %>
+    <% if required? %>
+      <span class="text-red-500 text-sm">*</span>
+    <% end %>
+  </div>
+
+  <%= @form_object.text_field @field_name, placeholder: @placeholder, required: required? %>
+
+  <%= render ViewComponents::ErrorMessage.new(errors) if errors.present? %>
+</div>

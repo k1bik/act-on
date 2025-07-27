@@ -1,9 +1,35 @@
 @import "tailwindcss";
 
 .btn {
-  @apply p-3 rounded-lg text-sm;
+  @apply p-3 rounded-lg text-sm cursor-pointer;
 
   &.blue {
     @apply text-white bg-blue-700 hover:bg-blue-800;
+  }
+}
+
+.text-input {
+  @apply flex flex-col gap-1;
+
+  label {
+    @apply text-sm;
+  }
+
+  input {
+    @apply bg-gray-50 border border-gray-300 text-sm rounded-lg w-full p-2.5 focus:outline-blue-700;
+  }
+}
+
+.error-input {
+  label {
+    @apply text-red-500;
+  }
+
+  input {
+    @apply border-red-500 bg-red-50;
+
+    &::placeholder {
+      @apply text-red-500/50;
+    }
   }
 }

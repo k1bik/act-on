@@ -1,6 +1,13 @@
 <%= render ViewComponents::Modal.new do %>
   <%= form_with url: locations_path, model: location, method: :post do |f| %>
-    <%= f.text_field :address %>
-    <%= f.submit "Create Location" %>
+    <%= render ViewComponents::TextInput.new(
+      f, :address,
+      label: "Адрес",
+      placeholder: "Введите адрес"
+    ) %>
+
+    <div class="flex justify-end">
+      <%= f.submit "Создать", class: "btn blue mt-2" %>
+    </div>
   <% end %>
 <% end %>
