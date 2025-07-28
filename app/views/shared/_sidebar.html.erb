@@ -1,13 +1,15 @@
-<aside class="fixed top-0 left-0 z-40 w-64 h-screen">
-  <div class="h-full px-3 py-4 bg-gray-50">
-    <%= link_to "Создать локацию", new_location_path, class: "btn blue", data: { turbo_frame: :modal } %>
+<aside class="w-64 h-screen border-r border-gray-200 bg-gray-50">
+  <div class="h-full px-3 py-4">
+    <div class="flex justify-center">
+      <%= link_to "Добавить локацию", new_location_path, class: "btn blue", data: { turbo_frame: :modal } %>
+    </div>
 
-    <ul class="flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[85vh] overflow-y-auto">
+    <ul class="flex flex-col gap-1 mt-8 h-[80vh] overflow-y-auto">
       <% Location.all.each do |location| %>
-        <li>
+        <li class="w-fit">
           <%= link_to location.address,
             location_path(location),
-            class: "w-fit max-w-48 text-sm block truncate",
+            class: ["p-3 w-fit max-w-48 text-sm block truncate rounded-md hover:bg-gray-100 hover:font-bold", ("bg-gray-100 font-bold" if current_page?(location))],
             title: location.address
           %>
         </li>

@@ -3,7 +3,10 @@
     <%= render ViewComponents::TextInput.new(
       f, :address,
       label: "Адрес",
-      placeholder: "Введите адрес"
+      placeholder: "Введите адрес",
+      input_html: {
+        autofocus: true
+      }
     ) %>
 
     <div class="flex justify-end">

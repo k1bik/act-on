@@ -20,8 +20,12 @@
   <body>
     <turbo-frame id="modal"></turbo-frame>
 
-    <%= render "shared/sidebar" %>
+    <div class="flex">
+      <%= render "shared/sidebar" %>
 
-    <%= yield %>
+      <main class="flex-1">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

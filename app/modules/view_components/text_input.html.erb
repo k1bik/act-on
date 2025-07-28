@@ -6,7 +6,7 @@
     <% end %>
   </div>
 
-  <%= @form_object.text_field @field_name, placeholder: @placeholder, required: required? %>
+  <%= @form_object.text_field @field_name, placeholder: @placeholder, required: required?, **@input_html %>
 
   <%= render ViewComponents::ErrorMessage.new(errors) if errors.present? %>
 </div>

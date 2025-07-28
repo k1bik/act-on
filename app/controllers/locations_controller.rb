@@ -1,6 +1,7 @@
 # typed: strict
 
 class LocationsController < ApplicationController
+  include TurboRedirect
   extend T::Sig
 
   sig { void }
@@ -17,9 +18,18 @@ class LocationsController < ApplicationController
     location = Location.new(location_params)
 
     if location.save
-      redirect_to root_path, notice: "Location created successfully"
+      redirect_to location_path(location), turbo_frame: "_top", notice: "Location created successfully"
     else
       render :new, locals: { location: }
+    end
+  end
+
+  sig { void }
+  def show
+    location = Location.find(params[:id])
+
+    respond_to do |f|
+      f.html { render :show, locals: { location: } }
     end
   end
 
