@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
-  resources :locations, only: %i[new create show]
+  resources :locations, only: %i[new create] do
+    resources :products
+    resources :orders
+  end
 end

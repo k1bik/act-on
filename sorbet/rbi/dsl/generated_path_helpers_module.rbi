@@ -10,13 +10,34 @@ module GeneratedPathHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
-  def location_path(*args); end
+  def edit_location_order_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_location_product_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def location_order_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def location_orders_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def location_product_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def location_products_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def locations_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def new_location_order_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def new_location_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def new_location_product_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def new_rails_conductor_inbound_email_path(*args); end

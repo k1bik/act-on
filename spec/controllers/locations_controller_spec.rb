@@ -10,17 +10,6 @@ RSpec.describe LocationsController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    let(:location) { create(:location) }
-
-    it "renders the show template" do
-      get :show, params: { id: location.id }
-
-      expect(response).to be_ok
-      expect(response).to render_template(:show)
-    end
-  end
-
   describe "POST #create" do
     subject { post :create, params: }
 
@@ -30,7 +19,7 @@ RSpec.describe LocationsController, type: :controller do
       expect { subject }.to change { Location.count }.by(1)
 
       expect(response).to be_redirect
-      expect(response).to redirect_to(location_path(Location.last))
+      expect(response).to redirect_to(location_products_path(Location.last))
       expect(flash[:notice]).to eq("Location created successfully")
     end
 

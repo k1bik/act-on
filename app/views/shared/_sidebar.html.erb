@@ -8,8 +8,8 @@
       <% Location.all.each do |location| %>
         <li class="w-fit">
           <%= link_to location.address,
-            location_path(location),
-            class: ["p-3 w-fit max-w-48 text-sm block truncate rounded-md hover:bg-gray-100 hover:font-bold", ("bg-gray-100 font-bold" if current_page?(location))],
+            location_products_path(location),
+            class: ["p-3 w-fit max-w-48 text-sm block truncate rounded-lg hover:bg-gray-100 hover:font-bold", ("bg-gray-100 font-bold" if  request.path.include?("locations/#{location.id}"))],
             title: location.address
           %>
         </li>

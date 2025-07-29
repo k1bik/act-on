@@ -1,0 +1,27 @@
+<%= render "layouts/application" do %>
+  <header class="bg-gray-50 p-4">
+    <p class="truncate w-[80vw]">
+      <%= location.address %>
+    </p>
+  </header>
+
+  <div class="p-4">
+    <ul class="flex gap-4 justify-center">
+      <li class="bg-gray-50 p-4 rounded-lg cursor-pointer border <%= current_page?(location_products_path(location)) ? "border-blue-700" : "hover:bg-gray-100 border-gray-100" %>">
+        <%= link_to location_products_path(location), class: "flex items-center gap-2" do %>
+          <%= inline_svg_tag "cube-transparent.svg" %>
+          Продукты
+        <% end %>
+      </li>
+
+      <li class="bg-gray-50 p-4 rounded-lg cursor-pointer border <%= current_page?(location_orders_path(location)) ? "border-blue-700" : "hover:bg-gray-100 border-gray-100" %>">
+        <%= link_to location_orders_path(location), class: "flex items-center gap-2" do %>
+          <%= inline_svg_tag "document-text.svg" %>
+          Заказы
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <%= yield %>
+<% end %>
