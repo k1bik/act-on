@@ -1,0 +1,10 @@
+<%= render ViewComponents::Modal.new(size: ViewComponents::Modal::MEDIUM) do %>
+  <div class="flex flex-col gap-2">
+    <div class="flex items-center gap-2">
+      <%= product.name %>
+      <%= product.price %>
+    </div>
+
+    <%= product.description %>
+  </div>
+<% end %>

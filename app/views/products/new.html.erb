@@ -1,0 +1,33 @@
+<%= render ViewComponents::Modal.new(size: ViewComponents::Modal::MEDIUM) do %>
+  <%= form_with url: location_products_path(location), model: product, method: :post, html: {novalidate: true} do |f| %>
+    <div class="flex gap-2 w-full mb-2">
+      <%= render ViewComponents::TextInput.new(
+        f, :name,
+        label: "Название",
+        placeholder: "Введите название",
+        classes: "w-1/2",
+        input_html: { autofocus: true }
+      ) %>
+
+      <%= render ViewComponents::NumberInput.new(
+        f, :price,
+        label: "Цена",
+        placeholder: "Введите цену",
+        classes: "w-1/2",
+        input_html: { min: 0, step: 0.01 }
+      ) %>
+    </div>
+
+    <%= render ViewComponents::TextAreaInput.new(
+      f, :description,
+      label: "Описание",
+      placeholder: "Введите описание",
+      classes: "w-full",
+      input_html: { rows: 3 }
+    ) %>
+
+    <div class="flex justify-end">
+      <%= f.submit "Добавить", class: "btn blue mt-2" %>
+    </div>
+  <% end %>
+<% end %>

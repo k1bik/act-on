@@ -1,1 +1,18 @@
+<div class="flex justify-end items-center mb-4 mx-4">
+  <%= link_to new_location_product_path(location), class: "flex gap-2 items-center btn blue", data: { turbo_frame: :modal } do %>
+    <%= inline_svg_tag "plus-circle.svg" %>
+    Добавить товар
+  <% end %>
+</div>
 
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
+  <% products.each do |product| %>
+    <%= render ViewComponents::ProductCard.new(
+      location_id: location.id,
+      product_id: product.id,
+      product_name: product.name,
+      price: product.price,
+      description: product.description
+    ) %>
+  <% end %>
+</div>

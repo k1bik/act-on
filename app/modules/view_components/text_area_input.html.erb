@@ -6,7 +6,7 @@
     <% end %>
   </div>
 
-  <%= @form_object.text_field @field_name, placeholder: @placeholder, maxlength: max_length, **@input_html %>
+  <%= @form_object.text_area @field_name, placeholder: @placeholder, maxlength: max_length, **@input_html %>
 
   <%= render ViewComponents::ErrorMessage.new(errors) if errors.present? %>
 </div>

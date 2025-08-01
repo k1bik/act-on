@@ -1,6 +1,6 @@
 # typed: strict
 
 module ViewComponents
-  class TextInput < FormInput
+  class TextAreaInput < FormInput
   end
 end
