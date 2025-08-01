@@ -38,10 +38,18 @@ class ProductsController < ApplicationController
     location = Location.find(params[:location_id])
     product = Product.new(location:, **product_params)
 
-    if product.save
-      redirect_to location_products_path(location), turbo_frame: "_top", notice: "Product created successfully"
-    else
-      render :new, locals: { location:, product: }
+    respond_to do |f|
+      if product.save
+        f.turbo_stream do
+          render turbo_stream: turbo_stream.update(
+            :products,
+            partial: "products/products",
+            locals: { products: location.products.order(created_at: :desc), location: }
+          )
+        end
+      else
+        f.html { render :new, locals: { location:, product: } }
+      end
     end
   end
 

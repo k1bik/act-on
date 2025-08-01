@@ -23,16 +23,12 @@ RSpec.describe ProductsController, type: :controller do
 
   describe "POST #create" do
     subject(:create_request) do
-      post :create, params: { location_id: location.id, product: { name: "Test Product", price: 100 } }
+      post :create, params: { location_id: location.id, product: { name: "Test Product", price: 100 } }, as: :turbo_stream
     end
 
     it "creates a new product" do
       expect { create_request }.to change { location.products.count }.by(1)
-    end
-
-    it "redirects to the index page" do
-      create_request
-      expect(response).to redirect_to(location_products_path(location))
+      expect(response).to be_ok
     end
   end
 

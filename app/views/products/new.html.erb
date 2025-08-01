@@ -1,12 +1,11 @@
 <%= render ViewComponents::Modal.new(size: ViewComponents::Modal::MEDIUM) do %>
-  <%= form_with url: location_products_path(location), model: product, method: :post, html: {novalidate: true} do |f| %>
+  <%= form_with url: location_products_path(location), model: product, method: :post, html: {novalidate: true, data: { action: "turbo:submit-end->modal#close" }} do |f| %>
     <div class="flex gap-2 w-full mb-2">
       <%= render ViewComponents::TextInput.new(
         f, :name,
         label: "Название",
         placeholder: "Введите название",
-        classes: "w-1/2",
-        input_html: { autofocus: true }
+        classes: "w-1/2"
       ) %>
 
       <%= render ViewComponents::NumberInput.new(
