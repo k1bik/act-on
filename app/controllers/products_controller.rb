@@ -41,11 +41,15 @@ class ProductsController < ApplicationController
     respond_to do |f|
       if product.save
         f.turbo_stream do
-          render turbo_stream: turbo_stream.update(
-            :products,
-            partial: "products/products",
-            locals: { products: location.products.order(created_at: :desc), location: }
-          )
+          flash.now[:notice] = "Продукт успешно добавлен!"
+          render turbo_stream: [
+            turbo_stream.append(:flash, partial: "shared/flash"),
+            turbo_stream.update(
+              :products,
+              partial: "products/products",
+              locals: { products: location.products.order(created_at: :desc), location: }
+            )
+          ]
         end
       else
         f.html { render :new, locals: { location:, product: } }

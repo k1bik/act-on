@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import ModalController from "./modal_controller"
 application.register("modal", ModalController)
+
+import Notification from "@stimulus-components/notification"
+application.register("notification", Notification)
