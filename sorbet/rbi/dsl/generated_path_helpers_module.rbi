@@ -10,7 +10,13 @@ module GeneratedPathHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def cancel_editing_location_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def edit_location_order_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_location_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def edit_location_product_path(*args); end
@@ -20,6 +26,9 @@ module GeneratedPathHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def location_orders_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def location_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def location_product_path(*args); end

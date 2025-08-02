@@ -6,6 +6,10 @@
   &.blue {
     @apply text-white bg-blue-700 hover:bg-blue-800;
   }
+
+  &.gray {
+    @apply text-white bg-gray-700 hover:bg-gray-800;
+  }
 }
 
 .form-field {

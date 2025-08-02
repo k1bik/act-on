@@ -8,13 +8,13 @@ module ViewComponents
       params(
         form_object: ActionView::Helpers::FormBuilder,
         field_name: Symbol,
-        label: String,
+        label: T.nilable(String),
         placeholder: T.nilable(String),
         classes: T.nilable(String),
         input_html: T.nilable(T::Hash[Symbol, T.any(String, Symbol, T::Boolean)])
       ).void
     end
-    def initialize(form_object, field_name, label:, placeholder: nil, classes: nil, input_html: {})
+    def initialize(form_object, field_name, label: nil, placeholder: nil, classes: nil, input_html: {})
       @form_object = form_object
       @field_name = field_name
       @label = label

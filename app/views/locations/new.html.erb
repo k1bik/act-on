@@ -6,8 +6,9 @@
       placeholder: "Введите адрес"
     ) %>
 
-    <div class="flex justify-end">
-      <%= f.submit "Создать", class: "btn blue mt-2" %>
+    <div class="flex justify-center gap-2 mt-4">
+      <button type="button" class="btn gray" data-action="click->modal#close">Отмена</button>
+      <%= f.submit "Создать", class: "btn blue" %>
     </div>
   <% end %>
 <% end %>

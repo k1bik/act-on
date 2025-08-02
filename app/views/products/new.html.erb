@@ -1,6 +1,6 @@
 <%= render ViewComponents::Modal.new(size: ViewComponents::Modal::MEDIUM) do %>
-  <%= form_with url: location_products_path(location), model: product, method: :post, html: {novalidate: true, data: { action: "turbo:submit-end->modal#close" }} do |f| %>
-    <div class="flex gap-2 w-full mb-2">
+  <%= form_with url: location_products_path(location), model: product, method: :post, html: {novalidate: true} do |f| %>
+    <div class="flex gap-2 w-full mb-4">
       <%= render ViewComponents::TextInput.new(
         f, :name,
         label: "Название",
@@ -25,8 +25,9 @@
       input_html: { rows: 3 }
     ) %>
 
-    <div class="flex justify-end">
-      <%= f.submit "Добавить", class: "btn blue mt-2" %>
+    <div class="flex justify-center gap-2 mt-4">
+      <button type="button" class="btn gray" data-action="click->modal#close">Отмена</button>
+      <%= f.submit "Добавить", class: "btn blue" %>
     </div>
   <% end %>
 <% end %>

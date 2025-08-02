@@ -10,10 +10,16 @@ module GeneratedUrlHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def cancel_editing_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def edit_location_order_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def edit_location_product_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_location_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def location_order_url(*args); end
@@ -26,6 +32,9 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def location_products_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def location_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def locations_url(*args); end

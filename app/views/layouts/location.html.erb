@@ -1,8 +1,9 @@
 <%= render "layouts/application" do %>
-  <header class="bg-gray-50 p-4">
-    <p class="truncate w-[80vw]">
-      <%= location.address %>
-    </p>
+  <header class="bg-gray-50 p-4 h-20 flex items-center">
+    <turbo-frame id="location-address">
+      <%= render "locations/address", location: %>
+    </turbo-frame>
+
   </header>
 
   <div class="p-4">

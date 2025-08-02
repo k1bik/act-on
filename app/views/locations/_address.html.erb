@@ -1,0 +1,9 @@
+<div class="flex items-center gap-2">
+  <p class="truncate max-w-[80vw]">
+    <%= location.address %>
+  </p>
+
+  <%= link_to edit_location_path(location), data: { turbo_frame: "location-address" } do %>
+    <%= inline_svg_tag "pencil-square.svg" %>
+  <% end %>
+</div>

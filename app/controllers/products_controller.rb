@@ -44,6 +44,7 @@ class ProductsController < ApplicationController
           flash.now[:notice] = "Продукт успешно добавлен!"
           render turbo_stream: [
             turbo_stream.append(:flash, partial: "shared/flash"),
+            turbo_stream.update(:modal, nil),
             turbo_stream.update(
               :products,
               partial: "products/products",

@@ -11,7 +11,7 @@ module ViewComponents
 
     sig { returns(String) }
     def call
-      tag.span class: "text-red-500 text-xs" do
+      tag.span class: "text-red-500 text-xs absolute -bottom-4" do
         @error_message
       end
     end
