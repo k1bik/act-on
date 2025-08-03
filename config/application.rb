@@ -40,5 +40,8 @@ module ActOn
     config.generators.system_tests = nil
 
     config.action_view.field_error_proc = Proc.new { |html_tag, _instance| html_tag }
+
+    # Configure timezone behavior for Rails 8.1 compatibility
+    config.active_support.to_time_preserves_timezone = :zone
   end
 end

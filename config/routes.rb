@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get :cancel_editing
     end
 
-    resources :products do
+    resources :products, only: %i[index show new create] do
       member do
         get :edit_name
         get :edit_price

@@ -28,9 +28,6 @@ module GeneratedUrlHelpersModule
   def edit_location_order_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def edit_location_product_url(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def edit_location_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }

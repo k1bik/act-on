@@ -31,9 +31,6 @@ module GeneratedPathHelpersModule
   def edit_location_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
-  def edit_location_product_path(*args); end
-
-  sig { params(args: T.untyped).returns(String) }
   def edit_name_location_product_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
