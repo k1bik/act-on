@@ -1,10 +1,15 @@
 <%= render ViewComponents::Modal.new(size: ViewComponents::Modal::MEDIUM) do %>
-  <div class="flex flex-col gap-2">
-    <div class="flex items-center gap-2">
-      <%= product.name %>
-      <%= product.price %>
-    </div>
+  <div class="flex flex-col gap-6">
+    <turbo-frame id="product_name">
+      <%= render "products/product_name", product:, location: %>
+    </turbo-frame>
 
-    <%= product.description %>
+    <turbo-frame id="product_price">
+      <%= render "products/product_price", product:, location: %>
+    </turbo-frame>
+
+    <turbo-frame id="product_description">
+      <%= render "products/product_description", product:, location: %>
+    </turbo-frame>
   </div>
 <% end %>

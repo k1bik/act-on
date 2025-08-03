@@ -10,7 +10,19 @@ module GeneratedUrlHelpersModule
   include ::ActionDispatch::Routing::PolymorphicRoutes
 
   sig { params(args: T.untyped).returns(String) }
+  def cancel_editing_description_location_product_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def cancel_editing_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def cancel_editing_name_location_product_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def cancel_editing_price_location_product_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_description_location_product_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def edit_location_order_url(*args); end
@@ -20,6 +32,12 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def edit_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_name_location_product_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def edit_price_location_product_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def location_order_url(*args); end
@@ -158,6 +176,15 @@ module GeneratedUrlHelpersModule
 
   sig { params(args: T.untyped).returns(String) }
   def turbo_resume_historical_location_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def update_description_location_product_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def update_name_location_product_url(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
+  def update_price_location_product_url(*args); end
 
   sig { params(args: T.untyped).returns(String) }
   def update_rails_disk_service_url(*args); end

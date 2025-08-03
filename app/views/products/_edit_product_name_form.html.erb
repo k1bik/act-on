@@ -1,0 +1,25 @@
+<%= form_with url: update_name_location_product_path(location, product),
+  model: product,
+  method: :patch,
+  class: "flex gap-2 items-center",
+  html: {novalidate: true} do |f|
+%>
+  <%= render ViewComponents::TextInput.new(
+    f, :name,
+    placeholder: "Введите название",
+    classes: "w-2/3"
+  ) %>
+
+  <div class="flex gap-2">
+    <%= button_tag type: "submit", class: "btn blue" do %>
+      <%= inline_svg_tag "check.svg" %>
+    <% end %>
+
+    <%= link_to cancel_editing_name_location_product_path(location, product),
+      data: { turbo_frame: :product_name, turbo_stream: true },
+      class: "btn gray" do
+    %>
+      <%= inline_svg_tag "x-mark.svg" %>
+    <% end %>
+  </div>
+<% end %>

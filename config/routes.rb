@@ -17,7 +17,22 @@ Rails.application.routes.draw do
       get :cancel_editing
     end
 
-    resources :products
+    resources :products do
+      member do
+        get :edit_name
+        get :edit_price
+        get :edit_description
+
+        get :cancel_editing_name
+        get :cancel_editing_price
+        get :cancel_editing_description
+
+        patch :update_name
+        patch :update_price
+        patch :update_description
+      end
+    end
+
     resources :orders
   end
 end

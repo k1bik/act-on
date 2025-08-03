@@ -1,0 +1,16 @@
+<div class="flex flex-col">
+  <div class="flex gap-2 items-center">
+    <p class="text-sm text-gray-500">
+      Название
+    </p>
+
+    <%= link_to edit_name_location_product_path(location, product),
+      data: { turbo_frame: :product_name, turbo_stream: true },
+      title: "Редактировать название" do
+    %>
+      <%= inline_svg_tag "pencil-square.svg", class: "text-gray-500" %>
+    <% end %>
+  </div>
+
+  <p><%= product.name %></p>
+</div>

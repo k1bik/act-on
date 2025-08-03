@@ -1,15 +1,15 @@
 <%= link_to location_product_path(@location_id, @product_id),
-  class: "bg-gray-50 p-4 rounded-lg relative hover:bg-gray-100",
+  class: "block relative bg-gray-50 rounded-lg hover:bg-gray-100 p-4",
   data: { turbo_frame: :modal } do
 %>
-  <p class="bg-blue-700 text-white p-1 rounded-lg text-xs absolute top-0 right-0">
+  <p class="bg-blue-700 text-white p-1 rounded-lg text-xs absolute top-2 right-2 z-10">
     <%= "#{@price} руб." %>
   </p>
 
-  <p class="truncate w-fit max-w-4/5" title="<%= @product_name %>">
+  <p class="truncate w-fit max-w-4/5 font-medium" title="<%= @product_name %>">
     <%= @product_name %>
   </p>
-  <p class="text-xs text-gray-500 line-clamp-2" title="<%= @description %>">
+  <p class="text-xs text-gray-500 line-clamp-2 mt-1" title="<%= @description %>">
     <%= @description %>
   </p>
 <% end %>

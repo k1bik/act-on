@@ -20,7 +20,7 @@
   }
 
   input, textarea {
-    @apply bg-gray-50 border border-gray-300 text-sm rounded-lg w-full p-2.5 focus:outline-blue-700;
+    @apply bg-gray-50 border border-gray-300 text-sm rounded-lg w-full p-3 focus:outline-blue-700;
   }
 }
 

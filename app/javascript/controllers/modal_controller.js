@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class ModalController extends Controller {
   connect() {
-    this.element.addEventListener("click", (e) => {
+    this.element.addEventListener("mousedown", (e) => {
       if (e.target === this.element) {
         this.close()
       }
