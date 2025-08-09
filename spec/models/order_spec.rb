@@ -14,5 +14,7 @@ RSpec.describe Order, type: :model do
 
     it { is_expected.to validate_presence_of(:due_date) }
     it { is_expected.to validate_presence_of(:status) }
+    it { is_expected.to validate_presence_of(:number) }
+    it { is_expected.to validate_uniqueness_of(:number).case_insensitive }
   end
 end

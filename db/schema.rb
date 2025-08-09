@@ -39,11 +39,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_154529) do
 
   create_table "orders", force: :cascade do |t|
     t.bigint "location_id", null: false
+    t.string "number", null: false
     t.enum "status", default: "created", null: false, enum_type: "order_status"
     t.datetime "due_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_orders_on_location_id"
+    t.index ["number"], name: "index_orders_on_number", unique: true
   end
 
   create_table "products", force: :cascade do |t|

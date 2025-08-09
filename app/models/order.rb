@@ -15,6 +15,7 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :products, through: :order_items
 
+  validates :number, presence: true, uniqueness: { case_sensitive: false }
   validates :due_date, presence: true
   validates :status, presence: true, inclusion: { in: STATUSES }
 end

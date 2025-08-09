@@ -816,6 +816,51 @@ class Order
     sig { void }
     def location_id_will_change!; end
 
+    sig { returns(::String) }
+    def number; end
+
+    sig { params(value: ::String).returns(::String) }
+    def number=(value); end
+
+    sig { returns(T::Boolean) }
+    def number?; end
+
+    sig { returns(T.nilable(::String)) }
+    def number_before_last_save; end
+
+    sig { returns(T.untyped) }
+    def number_before_type_cast; end
+
+    sig { returns(T::Boolean) }
+    def number_came_from_user?; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def number_change; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def number_change_to_be_saved; end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def number_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::String)) }
+    def number_in_database; end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def number_previous_change; end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def number_previously_changed?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable(::String)) }
+    def number_previously_was; end
+
+    sig { returns(T.nilable(::String)) }
+    def number_was; end
+
+    sig { void }
+    def number_will_change!; end
+
     sig { void }
     def restore_created_at!; end
 
@@ -830,6 +875,9 @@ class Order
 
     sig { void }
     def restore_location_id!; end
+
+    sig { void }
+    def restore_number!; end
 
     sig { void }
     def restore_status!; end
@@ -866,6 +914,12 @@ class Order
 
     sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
     def saved_change_to_location_id?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { returns(T.nilable([::String, ::String])) }
+    def saved_change_to_number; end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def saved_change_to_number?(from: T.unsafe(nil), to: T.unsafe(nil)); end
 
     sig { returns(T.nilable([::String, ::String])) }
     def saved_change_to_status; end
@@ -983,6 +1037,9 @@ class Order
 
     sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
     def will_save_change_to_location_id?(from: T.unsafe(nil), to: T.unsafe(nil)); end
+
+    sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
+    def will_save_change_to_number?(from: T.unsafe(nil), to: T.unsafe(nil)); end
 
     sig { params(from: T.untyped, to: T.untyped).returns(T::Boolean) }
     def will_save_change_to_status?(from: T.unsafe(nil), to: T.unsafe(nil)); end
