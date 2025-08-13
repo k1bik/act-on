@@ -1,7 +1,7 @@
 <turbo-frame id="location-sidebar-<%= location.id %>">
   <%= link_to location.address,
     location_products_path(location),
-    class: ["p-3 w-fit max-w-48 text-sm block truncate rounded-lg hover:bg-gray-100 hover:font-bold", ("bg-gray-100 font-bold" if  request.path.include?("locations/#{location.id}"))],
+    class: ["p-3 w-fit max-w-48 text-sm block truncate rounded-lg hover:bg-gray-100 hover:font-bold", ("bg-gray-100 font-bold" if request.path.match?(/locations\/#{location.id}(?:\/|$)/))],
     data: { turbo_frame: "_top" },
     title: location.address
   %>

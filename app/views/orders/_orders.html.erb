@@ -1,0 +1,7 @@
+<div class="grid grid-cols-2 gap-4 px-4">
+  <% orders.each do |order| %>
+    <turbo-frame id="order_card_<%= order.id %>">
+      <%= render "orders/order_card", order:, location: %>
+    </turbo-frame>
+  <% end %>
+</div>

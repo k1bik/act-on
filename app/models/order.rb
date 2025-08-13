@@ -15,7 +15,10 @@ class Order < ApplicationRecord
   has_many :order_items
   has_many :products, through: :order_items
 
+  # TODO: добавить валидацию на наличие товаров в заказе
+  # validates :order_items, presence: true
   validates :number, presence: true, uniqueness: { case_sensitive: false }
+  validates :comment, length: { maximum: 1000 }, allow_blank: true
   validates :due_date, presence: true
   validates :status, presence: true, inclusion: { in: STATUSES }
 end

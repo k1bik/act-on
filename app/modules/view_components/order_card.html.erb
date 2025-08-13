@@ -1,0 +1,48 @@
+<div class="flex flex-col gap-2 bg-gray-50 rounded-lg p-4">
+  <div class="flex gap-2">
+    <p class="font-bold">Номер заказа:</p>
+
+    <p><%= @order.number %></p>
+  </div>
+
+  <div class="flex gap-2">
+    <p class="font-bold">Дедлайн:</p>
+
+    <p><%= render ViewComponents::DateTime.new(@order.due_date) %></p>
+  </div>
+
+  <div class="flex gap-2">
+    <p class="font-bold">Статус:</p>
+
+    <p><%= @order.status %></p>
+  </div>
+
+  <div class="flex gap-2">
+    <p class="font-bold">Продукты:</p>
+
+    <p><%= @order.order_items.map{ "#{it.product.name} - #{it.quantity}" }.join(", ") %></p>
+  </div>
+
+  <% if (comment = @order.comment).present? %>
+    <div
+      data-controller="read-more"
+      data-read-more-more-text-value="Показать больше ↓"
+      data-read-more-less-text-value="Показать меньше ↑"
+      class="flex gap-2"
+    >
+      <p class="font-bold">Комментарий:</p>
+
+      <div>
+        <p style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--read-more-line-clamp, 2);" data-read-more-target="content">
+          <%= comment %>
+        </p>
+
+        <% if long_comment? %>
+          <button data-action="read-more#toggle" class="text-blue-500 cursor-pointer text-sm">
+            Показать больше ↓
+          </button>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

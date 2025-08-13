@@ -9,3 +9,6 @@ application.register("modal", ModalController)
 
 import Notification from "@stimulus-components/notification"
 application.register("notification", Notification)
+
+import ReadMore from "@stimulus-components/read-more"
+application.register("read-more", ReadMore)

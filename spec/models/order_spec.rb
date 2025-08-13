@@ -16,5 +16,6 @@ RSpec.describe Order, type: :model do
     it { is_expected.to validate_presence_of(:status) }
     it { is_expected.to validate_presence_of(:number) }
     it { is_expected.to validate_uniqueness_of(:number).case_insensitive }
+    it { is_expected.to validate_length_of(:comment).is_at_most(1000) }
   end
 end

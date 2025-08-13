@@ -40,6 +40,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_154529) do
   create_table "orders", force: :cascade do |t|
     t.bigint "location_id", null: false
     t.string "number", null: false
+    t.text "comment"
     t.enum "status", default: "created", null: false, enum_type: "order_status"
     t.datetime "due_date", null: false
     t.datetime "created_at", null: false
