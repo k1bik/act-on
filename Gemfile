@@ -19,7 +19,7 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -40,6 +40,7 @@ gem "sorbet-runtime"
 gem "discard", "~> 1.4"
 gem "view_component"
 gem "inline_svg"
+gem "telegram-bot"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -54,6 +55,7 @@ group :development, :test do
   gem "tapioca",  "~> 0.17", require: false
   gem "rspec-rails", "~> 8.0.0"
   gem "factory_bot_rails"
+  gem "dotenv"
 end
 
 group :development do

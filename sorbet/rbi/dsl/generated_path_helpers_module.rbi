@@ -166,6 +166,9 @@ module GeneratedPathHelpersModule
   def root_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }
+  def telegram_webhook_path(*args); end
+
+  sig { params(args: T.untyped).returns(String) }
   def turbo_recede_historical_location_path(*args); end
 
   sig { params(args: T.untyped).returns(String) }

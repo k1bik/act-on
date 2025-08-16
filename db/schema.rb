@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_26_154529) do
+ActiveRecord::Schema[8.0].define(version: 2025_08_13_195921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -62,8 +62,21 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_26_154529) do
     t.index ["location_id"], name: "index_products_on_location_id"
   end
 
+  create_table "telegram_users", force: :cascade do |t|
+    t.bigint "location_id"
+    t.string "chat_id", null: false
+    t.string "first_name", null: false
+    t.string "last_name"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_telegram_users_on_chat_id", unique: true
+    t.index ["location_id"], name: "index_telegram_users_on_location_id"
+  end
+
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "locations"
   add_foreign_key "products", "locations"
+  add_foreign_key "telegram_users", "locations"
 end
